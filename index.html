@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寧波・普陀山 五日旅遊指南</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-height:100vh}
+.hero{background:linear-gradient(160deg,#0c447c 0%,#185FA5 50%,#1D9E75 100%);color:#fff;padding:3rem 1.5rem 2rem;text-align:center}
+.hero-sub{font-size:13px;letter-spacing:2px;opacity:.8;margin-bottom:8px;text-transform:uppercase}
+.hero-title{font-size:2.2rem;font-weight:700;margin-bottom:8px;line-height:1.2}
+.hero-title span{color:#9FE1CB}
+.hero-dates{font-size:14px;opacity:.9;margin-top:12px}
+.flight-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.fl-pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:5px 14px;font-size:12px}
+
+.nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e8e6e0;display:flex;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.ntab{flex-shrink:0;padding:12px 20px;font-size:13px;font-weight:500;color:#888;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
+.ntab.on{color:#185FA5;border-bottom-color:#185FA5}
+
+.pnl{display:none;max-width:720px;margin:0 auto;padding:1.5rem 1rem 3rem}
+.pnl.on{display:block}
+
+.section-label{font-size:11px;letter-spacing:1.5px;color:#888;text-transform:uppercase;margin:1.5rem 0 .75rem;font-weight:500}
+
+/* day selector */
+.daynav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem}
+.dtab{font-size:12px;padding:6px 14px;border-radius:999px;cursor:pointer;border:1px solid #ddd;color:#666;background:#fff;font-weight:500;transition:all .15s}
+.dtab.on{border-color:transparent;color:#fff}
+.dpnl{display:none}.dpnl.on{display:block}
+.day-info{background:#fff;border-radius:12px;border:1px solid #eee;padding:12px 16px;margin-bottom:1rem}
+.day-info-title{font-size:15px;font-weight:700;color:#1a1a18;margin-bottom:3px}
+.day-info-sub{font-size:12px;color:#888}
+
+/* timeline */
+.tl{position:relative;padding-left:20px}
+.tl::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:#e8e6e0;border-radius:2px}
+.ti{position:relative;background:#fff;border:1px solid #eee;border-radius:10px;padding:10px 14px;margin-bottom:8px}
+.dot{position:absolute;left:-23px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;border:2px solid #ddd;background:#fff;z-index:1}
+.dot.p{border-color:#534AB7;background:#EEEDFE}
+.dot.f{border-color:#BA7517;background:#FAEEDA}
+.dot.n{border-color:#3B6D11;background:#EAF3DE}
+.dot.t{border-color:#185FA5;background:#E6F1FB}
+.dot.h{border-color:#993C1D;background:#FAECE7}
+.ti-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ti-time{font-size:11px;color:#aaa;font-weight:500;min-width:34px}
+.ti-name{font-size:14px;font-weight:600;color:#1a1a18;flex:1}
+.ti-dur{font-size:11px;color:#aaa}
+.ti-note{font-size:12px;color:#666;margin-top:4px;line-height:1.6;padding-left:42px}
+.tag{font-size:10px;padding:2px 7px;border-radius:999px;font-weight:500}
+.tg-t{background:#EEEDFE;color:#3C3489}
+.tg-f{background:#FAEEDA;color:#633806}
+.tg-n{background:#EAF3DE;color:#27500A}
+.tg-tr{background:#E6F1FB;color:#0C447C}
+.tg-h{background:#FAECE7;color:#712B13}
+
+/* transport */
+.leg{background:#fff;border:1px solid #eee;border-radius:12px;margin-bottom:10px;overflow:hidden}
+.lh{display:flex;align-items:center;gap:10px;padding:11px 16px;background:#fafaf8;border-bottom:1px solid #eee}
+.lh-route{font-size:13px;font-weight:600;color:#1a1a18;margin:0}
+.lh-day{font-size:11px;color:#aaa;margin:0}
+.lb{display:grid;grid-template-columns:1fr 1fr}
+.lc{padding:10px 16px}
+.lc+.lc{border-left:1px solid #eee}
+.lc-label{font-size:11px;color:#aaa;margin:0 0 3px}
+.lc-val{font-size:19px;font-weight:700;margin:0}
+.lc-val.cheap{color:#185FA5}.lc-val.pricey{color:#993C1D}.lc-val.muted{color:#bbb}
+.lc-note{font-size:11px;color:#888;margin:2px 0 0;line-height:1.5}
+.badge{font-size:10px;padding:2px 8px;border-radius:999px;display:inline-block;margin-top:4px;font-weight:500}
+.b-green{background:#EAF3DE;color:#27500A}
+.b-blue{background:#E6F1FB;color:#0C447C}
+.total-box{background:#fff;border:1px solid #eee;border-radius:10px;padding:11px 16px;margin-top:8px;display:flex;justify-content:space-between;align-items:center}
+.total-box.accent{background:#E6F1FB;border-color:#B5D4F4}
+.tb-label{font-size:13px;color:#666}
+.tb-val{font-size:15px;font-weight:700;color:#1a1a18}
+.total-box.accent .tb-label{color:#0C447C;font-weight:500}
+.total-box.accent .tb-val{color:#0C447C}
+
+/* hotels */
+.area-title{font-size:13px;font-weight:600;color:#444;margin:1.2rem 0 .6rem;display:flex;align-items:center;gap:5px}
+.hgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-bottom:10px}
+.hcard{background:#fff;border:1px solid #eee;border-radius:12px;padding:12px 14px}
+.htier{font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;display:inline-block;margin-bottom:6px}
+.ht-lux{background:#EEEDFE;color:#3C3489}
+.ht-mid{background:#E6F1FB;color:#0C447C}
+.ht-bud{background:#EAF3DE;color:#27500A}
+.hname{font-size:14px;font-weight:700;color:#1a1a18;margin:0 0 3px}
+.hnote{font-size:12px;color:#666;margin:0 0 6px;line-height:1.5}
+.hprice{font-size:14px;font-weight:700;color:#1a1a18}
+.hprice span{font-size:11px;font-weight:400;color:#aaa}
+
+/* tip */
+.tip{background:#FAEEDA;border:1px solid #FAC775;border-radius:10px;padding:10px 14px;display:flex;gap:8px;margin:1rem 0}
+.tip-icon{font-size:16px;flex-shrink:0}
+.tip p{font-size:12px;color:#3d2a00;line-height:1.6}
+.tip p strong{color:#1a1a18}
+
+/* overview table */
+.overview-table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #eee}
+.overview-table th{background:#fafaf8;font-size:12px;font-weight:600;color:#666;padding:8px 14px;text-align:left;border-bottom:1px solid #eee}
+.overview-table td{font-size:13px;padding:9px 14px;border-bottom:1px solid #f2f0eb;vertical-align:middle}
+.overview-table tr:last-child td{border-bottom:none}
+.day-chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px}
+
+/* footer */
+.footer{background:#fff;border-top:1px solid #eee;padding:1.5rem;text-align:center;font-size:12px;color:#aaa;margin-top:2rem}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <p class="hero-sub">Travel Guide</p>
+  <h1 class="hero-title">寧波・<span>普陀山</span></h1>
+  <div class="hero-dates">2026年 11月19日（周四）－ 11月23日（周一）五天四夜</div>
+  <div class="flight-row">
+    <span class="fl-pill">✈ 去程 11/19 17:10 桃機 → 18:50 寧波</span>
+    <span class="fl-pill">✈ 回程 11/23 14:30 寧波 → 16:10 桃機</span>
+  </div>
+</div>
+
+<div class="nav">
+  <div class="ntab on" onclick="switchMain('overview',this)">總覽</div>
+  <div class="ntab" onclick="switchMain('itinerary',this)">行程時間表</div>
+  <div class="ntab" onclick="switchMain('transport',this)">交通 &amp; 費用</div>
+  <div class="ntab" onclick="switchMain('hotel',this)">住宿推薦</div>
+  <div class="ntab" onclick="switchMain('tips',this)">注意事項</div>
+</div>
+
+<!-- ===== 總覽 ===== -->
+<div class="pnl on" id="overview">
+  <p class="section-label">五日行程概覽</p>
+  <table class="overview-table">
+    <thead><tr><th>日期</th><th>重點行程</th><th>住宿</th></tr></thead>
+    <tbody>
+      <tr><td><span class="day-chip" style="background:#E6F1FB;color:#185FA5">D1 周四 11/19</span></td><td>抵達寧波・天一廣場夜遊</td><td>寧波市區</td></tr>
+      <tr><td><span class="day-chip" style="background:#EAF3DE;color:#3B6D11">D2 周五 11/20</span></td><td>天一閣・月湖 → 搭船到普陀山</td><td>普陀山島上</td></tr>
+      <tr><td><span class="day-chip" style="background:#EEEDFE;color:#3C3489">D3 周六 11/21</span></td><td>普陀山全日：三大寺・觀音像・千步沙</td><td>普陀山島上</td></tr>
+      <tr><td><span class="day-chip" style="background:#FAEEDA;color:#633806">D4 周日 11/22</span></td><td>返寧波・老外灘・城隍廟老街</td><td>寧波市區</td></tr>
+      <tr><td><span class="day-chip" style="background:#E1F5EE;color:#0F6E56">D5 周一 11/23</span></td><td>採買伴手禮 → 機場返台</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <p class="section-label" style="margin-top:1.5rem">費用預估</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px">
+    <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:12px 14px"><p style="font-size:11px;color:#aaa;margin:0 0 3px">交通（寧波段）</p><p style="font-size:18px;font-weight:700;margin:0">¥345－457</p></div>
+    <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:12px 14px"><p style="font-size:11px;color:#aaa;margin:0 0 3px">渡船來回</p><p style="font-size:18px;font-weight:700;margin:0">約 ¥280</p></div>
+    <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:12px 14px"><p style="font-size:11px;color:#aaa;margin:0 0 3px">普陀山通票</p><p style="font-size:18px;font-weight:700;margin:0">¥160－200</p></div>
+    <div style="background:#E6F1FB;border:1px solid #B5D4F4;border-radius:10px;padding:12px 14px"><p style="font-size:11px;color:#0C447C;margin:0 0 3px;font-weight:500">交通總預算</p><p style="font-size:18px;font-weight:700;margin:0;color:#0C447C">¥510－737</p></div>
+  </div>
+</div>
+
+<!-- ===== 行程 ===== -->
+<div class="pnl" id="itinerary">
+  <div class="daynav">
+    <div class="dtab on" style="background:#185FA5;border-color:#185FA5" onclick="switchDay('d1',this,'#185FA5')">D1 周四</div>
+    <div class="dtab" onclick="switchDay('d2',this,'#3B6D11')">D2 周五</div>
+    <div class="dtab" onclick="switchDay('d3',this,'#3C3489')">D3 周六</div>
+    <div class="dtab" onclick="switchDay('d4',this,'#633806')">D4 周日</div>
+    <div class="dtab" onclick="switchDay('d5',this,'#0F6E56')">D5 周一</div>
+  </div>
+
+  <div class="dpnl on" id="d1">
+    <div class="day-info"><p class="day-info-title">11月19日（周四）・抵達寧波・天一廣場</p><p class="day-info-sub">住宿：天一廣場周邊酒店</p></div>
+    <div class="tl">
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">17:10</span><span class="ti-name">桃園機場起飛</span><span class="tag tg-tr">出發</span></div></div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">18:50</span><span class="ti-name">抵達寧波栎社機場</span></div><p class="ti-note">出關取行李，叫滴滴約25分鐘直達天一廣場酒店（¥65-85）</p></div>
+      <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">19:30</span><span class="ti-name">辦理入住</span><span class="ti-dur">30分</span><span class="tag tg-h">住宿</span></div><p class="ti-note">放好行李，換輕便衣物出門</p></div>
+      <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">20:00</span><span class="ti-name">天一廣場夜遊</span><span class="ti-dur">1小時</span><span class="tag tg-n">景點</span></div><p class="ti-note">步行街燈光夜景，感受城市氣氛</p></div>
+      <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">21:00</span><span class="ti-name">晚餐</span><span class="ti-dur">1小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">寧波湯圓、黃魚麵、鍋貼，廣場內餐廳林立</p></div>
+      <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">22:00</span><span class="ti-name">返回休息</span></div><p class="ti-note">明天早起遊天一閣，早點就寢</p></div>
+    </div>
+  </div>
+
+  <div class="dpnl" id="d2">
+    <div class="day-info"><p class="day-info-title">11月20日（周五）・寧波精華 → 普陀山</p><p class="day-info-sub">住宿：普陀山島上酒店／民宿</p></div>
+    <div class="tl">
+      <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">08:00</span><span class="ti-name">早餐</span><span class="ti-dur">30分</span><span class="tag tg-f">美食</span></div></div>
+      <div class="ti"><div class="dot p"></div><div class="ti-top"><span class="ti-time">08:30</span><span class="ti-name">天一閣博物院</span><span class="ti-dur">1.5小時</span><span class="tag tg-t">文化</span></div><p class="ti-note">步行15分鐘即到，中國現存最古老私人藏書樓</p></div>
+      <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">10:00</span><span class="ti-name">月湖景區散步</span><span class="ti-dur">45分</span><span class="tag tg-n">景觀</span></div><p class="ti-note">緊鄰天一閣，繞湖一圈，拍照怡情</p></div>
+      <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">11:00</span><span class="ti-name">午餐</span><span class="ti-dur">1小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">月湖附近餐廳，吃完回酒店取行李</p></div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">12:30</span><span class="ti-name">滴滴 → 北侖客運碼頭</span><span class="ti-dur">約45分</span><span class="tag tg-tr">交通</span></div><p class="ti-note">約35km，費用¥90-120，提前購好14:00船票</p></div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">14:00</span><span class="ti-name">高速船出發</span><span class="ti-dur">75分</span><span class="tag tg-tr">交通</span></div><p class="ti-note">北侖→普陀山，船票約¥140，全程海景</p></div>
+      <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">15:30</span><span class="ti-name">抵達普陀山・入住</span><span class="ti-dur">1小時</span><span class="tag tg-h">住宿</span></div><p class="ti-note">島上電瓶車接送，安頓後熟悉環境</p></div>
+      <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">17:00</span><span class="ti-name">百步沙海灘</span><span class="ti-dur">1小時</span><span class="tag tg-n">海灘</span></div><p class="ti-note">迎晚風漫步，感受普陀山第一個黃昏</p></div>
+      <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">18:30</span><span class="ti-name">晚餐</span><span class="ti-dur">1小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">島上海鮮或素食餐廳</p></div>
+    </div>
+  </div>
+
+  <div class="dpnl" id="d3">
+    <div class="day-info"><p class="day-info-title">11月21日（周六）・普陀山全日深度遊</p><p class="day-info-sub">住宿：普陀山島上（連住第二晚）</p></div>
+    <div class="tl">
+      <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">06:30</span><span class="ti-name">早起・簡單早餐</span><span class="ti-dur">30分</span></div><p class="ti-note">趁早人少，景點清淨靜謐</p></div>
+      <div class="ti"><div class="dot p"></div><div class="ti-top"><span class="ti-time">07:00</span><span class="ti-name">普濟禪寺</span><span class="ti-dur">1.5小時</span><span class="tag tg-t">廟宇</span></div><p class="ti-note">普陀山主剎，觀音道場，荷花池景美，早晨香火最靈</p></div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">08:30</span><span class="ti-name">電瓶車 → 法雨禪寺</span><span class="ti-dur">15分</span><span class="tag tg-tr">¥10</span></div></div>
+      <div class="ti"><div class="dot p"></div><div class="ti-top"><span class="ti-time">09:00</span><span class="ti-name">法雨禪寺</span><span class="ti-dur">1小時</span><span class="tag tg-t">廟宇</span></div><p class="ti-note">明代古剎，背山面海，建築宏偉精美</p></div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">10:00</span><span class="ti-name">索道上佛頂山</span><span class="ti-dur">10分</span><span class="tag tg-tr">¥50來回</span></div></div>
+      <div class="ti"><div class="dot p"></div><div class="ti-top"><span class="ti-time">10:15</span><span class="ti-name">慧濟禪寺</span><span class="ti-dur">1小時</span><span class="tag tg-t">廟宇</span></div><p class="ti-note">山頂寺廟，俯瞰全島與大海，三大寺中最高</p></div>
+      <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">12:00</span><span class="ti-name">下山・素齋午餐</span><span class="ti-dur">1.5小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">索道下山，普陀山素麵名物，慢慢用餐休息</p></div>
+      <div class="ti"><div class="dot p"></div><div class="ti-top"><span class="ti-time">14:00</span><span class="ti-name">南海觀音聖像</span><span class="ti-dur">1小時</span><span class="tag tg-t">聖地</span></div><p class="ti-note">33公尺高銅像，面向大海，氣勢磅礴，必拍景點</p></div>
+      <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">15:30</span><span class="ti-name">千步沙海灘</span><span class="ti-dur">1.5小時</span><span class="tag tg-n">海灘</span></div><p class="ti-note">普陀山最大海灘，漫步、吹海風，11月人少景美</p></div>
+      <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">18:00</span><span class="ti-name">晚餐・早休</span><span class="ti-dur">1小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">明天09:00搭船，行李今晚先整理好</p></div>
+    </div>
+  </div>
+
+  <div class="dpnl" id="d4">
+    <div class="day-info"><p class="day-info-title">11月22日（周日）・返回寧波・老外灘</p><p class="day-info-sub">住宿：寧波市區酒店</p></div>
+    <div class="tl">
+      <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">07:30</span><span class="ti-name">早餐・退房整理</span><span class="ti-dur">1小時</span></div></div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">09:00</span><span class="ti-name">高速船返寧波</span><span class="ti-dur">75分</span><span class="tag tg-tr">交通</span></div><p class="ti-note">搭早班船，北侖碼頭下船後叫滴滴</p></div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">10:15</span><span class="ti-name">滴滴 → 老外灘</span><span class="ti-dur">約45分</span><span class="tag tg-tr">¥90-120</span></div><p class="ti-note">北侖→老外灘約35km，直達</p></div>
+      <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">11:30</span><span class="ti-name">午餐・老外灘附近</span><span class="ti-dur">1小時</span><span class="tag tg-f">美食</span></div></div>
+      <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">13:00</span><span class="ti-name">老外灘散步</span><span class="ti-dur">1.5小時</span><span class="tag tg-n">人文</span></div><p class="ti-note">百年租界建築，沿甬江漫步，拍照絕佳</p></div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">14:30</span><span class="ti-name">滴滴 → 城隍廟/鼓樓</span><span class="ti-dur">10分</span><span class="tag tg-tr">¥20-25</span></div></div>
+      <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">15:00</span><span class="ti-name">城隍廟・鼓樓老街</span><span class="ti-dur">1.5小時</span><span class="tag tg-n">人文</span></div><p class="ti-note">傳統小吃與手工藝品，可先買些伴手禮</p></div>
+      <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">16:30</span><span class="ti-name">滴滴 → 酒店 Check-in</span><span class="ti-dur">20分</span><span class="tag tg-tr">¥15-25</span></div></div>
+      <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">18:30</span><span class="ti-name">海鮮大餐・最後晚餐</span><span class="ti-dur">1.5小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">梭子蟹、蛤蜊、黃魚，寧波海鮮大快朵頤</p></div>
+    </div>
+  </div>
+
+  <div class="dpnl" id="d5">
+    <div class="day-info"><p class="day-info-title">11月23日（周一）・返程日</p><p class="day-info-sub">14:30 起飛，16:10 抵桃園</p></div>
+    <div class="tl">
+      <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">08:00</span><span class="ti-name">在地早點</span><span class="ti-dur">1小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">粢飯糰、油條豆漿、湯圓，體驗在地早晨</p></div>
+      <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">09:00</span><span class="ti-name">伴手禮最後採買</span><span class="ti-dur">2小時</span></div><p class="ti-note">超市或天一廣場：苔條、湯圓粉、梅乾菜、奉化芋頭酥</p></div>
+      <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">11:00</span><span class="ti-name">退房・午餐</span><span class="ti-dur">1小時</span></div><p class="ti-note">行李可暫寄酒店，輕裝吃最後一餐</p></div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">12:00</span><span class="ti-name">出發機場</span><span class="ti-dur">約35分</span><span class="tag tg-tr">交通</span></div><p class="ti-note">滴滴¥65-85 或 大巴¥20，航班14:30，提前2小時到場</p></div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">12:40</span><span class="ti-name">抵達機場・辦理登機</span></div><p class="ti-note">出境手續留足時間，不要晚於12:00才出發</p></div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">14:30</span><span class="ti-name">起飛 ✈ 返台灣</span><span class="tag tg-tr">回程</span></div><p class="ti-note">16:10 抵達桃園國際機場</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 交通 ===== -->
+<div class="pnl" id="transport">
+  <p class="section-label">各段交通方式與費用</p>
+
+  <div class="leg">
+    <div class="lh"><div><p class="lh-route">機場 ↔ 天一廣場（D1 / D5）</p><p class="lh-day">到達與離境・約20km</p></div></div>
+    <div class="lb">
+      <div class="lc"><p class="lc-label">機場大巴 1號線</p><p class="lc-val cheap">¥20</p><p class="lc-note">約30-35分，→天一廣場站下</p><span class="badge b-green">行李少推薦</span></div>
+      <div class="lc"><p class="lc-label">滴滴打車</p><p class="lc-val pricey">¥65－85</p><p class="lc-note">約25分，直達酒店門口</p><span class="badge b-blue">行李多推薦</span></div>
+    </div>
+  </div>
+
+  <div class="leg">
+    <div class="lh"><div><p class="lh-route">天一廣場 → 天一閣（D2）</p><p class="lh-day">約1.5km・建議步行</p></div></div>
+    <div class="lb">
+      <div class="lc"><p class="lc-label">步行（強烈建議）</p><p class="lc-val cheap">免費</p><p class="lc-note">15分鐘，沿途有老街可邊走邊看</p><span class="badge b-green">最推薦</span></div>
+      <div class="lc"><p class="lc-label">滴滴</p><p class="lc-val muted">¥15－22</p><p class="lc-note">1.5km短程，等車比走還慢</p></div>
+    </div>
+  </div>
+
+  <div class="leg">
+    <div class="lh"><div><p class="lh-route">寧波市區 → 北侖客運碼頭（D2 / D4）</p><p class="lh-day">約35km・無直達大巴</p></div></div>
+    <div class="lb">
+      <div class="lc"><p class="lc-label">地鐵＋公車</p><p class="lc-val muted">需轉乘</p><p class="lc-note">約1.5小時，有行李非常不實際</p></div>
+      <div class="lc"><p class="lc-label">滴滴（強力推薦）</p><p class="lc-val pricey">¥90－120</p><p class="lc-note">約40分，直達碼頭，有行李唯一選擇</p><span class="badge b-green">強烈建議</span></div>
+    </div>
+  </div>
+
+  <div class="leg">
+    <div class="lh"><div><p class="lh-route">高速船：北侖碼頭 ↔ 普陀山</p><p class="lh-day">D2 去程・D4 回程</p></div></div>
+    <div class="lb">
+      <div class="lc"><p class="lc-label">船程時間</p><p class="lc-val cheap">75 分</p><p class="lc-note">全程海景，可在甲板拍照</p></div>
+      <div class="lc"><p class="lc-label">船票費用</p><p class="lc-val pricey">約 ¥140</p><p class="lc-note">建議攜程/美團提前訂票</p><span class="badge b-green">提前購票</span></div>
+    </div>
+  </div>
+
+  <div class="leg">
+    <div class="lh"><div><p class="lh-route">普陀山島內電瓶車 + 索道</p><p class="lh-day">D2、D3 島上移動</p></div></div>
+    <div class="lb">
+      <div class="lc"><p class="lc-label">景區電瓶車</p><p class="lc-val cheap">¥10－20</p><p class="lc-note">島上禁私家車，統一電瓶車</p></div>
+      <div class="lc"><p class="lc-label">佛頂山索道</p><p class="lc-val pricey">¥50</p><p class="lc-note">來回，省體力上慧濟禪寺</p></div>
+    </div>
+  </div>
+
+  <div class="leg">
+    <div class="lh"><div><p class="lh-route">老外灘 → 城隍廟（D4）</p><p class="lh-day">約3km</p></div></div>
+    <div class="lb">
+      <div class="lc"><p class="lc-label">公車</p><p class="lc-val cheap">¥2</p><p class="lc-note">有公車可搭，班次較少</p></div>
+      <div class="lc"><p class="lc-label">滴滴</p><p class="lc-val pricey">¥20－30</p><p class="lc-note">3km短程，周日下午交通尚可</p></div>
+    </div>
+  </div>
+
+  <div class="total-box"><span class="tb-label">全程滴滴預估（寧波段）</span><span class="tb-val">¥345－457</span></div>
+  <div class="total-box"><span class="tb-label">混搭大巴（機場段搭巴士）</span><span class="tb-val">¥230－310</span></div>
+  <div class="total-box"><span class="tb-label">船票（來回）</span><span class="tb-val">約 ¥280</span></div>
+  <div class="total-box accent"><span class="tb-label">交通總預算（含船）</span><span class="tb-val">約 ¥510－737</span></div>
+
+  <div class="tip">
+    <span class="tip-icon">📱</span>
+    <p>出發前在台灣先下載 <strong>滴滴出行</strong> APP，台灣手機號碼即可註冊。付款建議綁定微信或支付寶，或換少量人民幣現金備用。</p>
+  </div>
+</div>
+
+<!-- ===== 住宿 ===== -->
+<div class="pnl" id="hotel">
+  <p class="section-label">寧波・天一廣場周邊<span style="font-size:11px;color:#aaa;margin-left:6px">D1（周四）＋ D4（周日）</span></p>
+  <div class="hgrid">
+    <div class="hcard"><span class="htier ht-lux">高端</span><p class="hname">寧波鉑爾曼大酒店</p><p class="hnote">天一廣場正對面，位置無敵，設施豪華</p><p class="hprice">¥700－1200 <span>/ 晚</span></p></div>
+    <div class="hcard"><span class="htier ht-lux">高端</span><p class="hname">寧波洲際酒店</p><p class="hnote">CBD核心，江景房視野極佳，服務一流</p><p class="hprice">¥800－1500 <span>/ 晚</span></p></div>
+  </div>
+  <div class="hgrid">
+    <div class="hcard"><span class="htier ht-mid">中端</span><p class="hname">寧波錦江都城酒店</p><p class="hnote">天一廣場步行5分，CP值高，早餐豐盛</p><p class="hprice">¥350－550 <span>/ 晚</span></p></div>
+    <div class="hcard"><span class="htier ht-mid">中端</span><p class="hname">全季酒店（天一廣場店）</p><p class="hnote">連鎖品牌，乾淨舒適，地點方便</p><p class="hprice">¥280－420 <span>/ 晚</span></p></div>
+  </div>
+
+  <p class="section-label">普陀山島上<span style="font-size:11px;color:#aaa;margin-left:6px">D2（周五）＋ D3（周六）連住兩晚</span></p>
+  <div class="hgrid">
+    <div class="hcard"><span class="htier ht-lux">高端</span><p class="hname">普陀山索菲特大酒店</p><p class="hnote">島上最佳，海景房壯觀，環境清幽，含早推薦</p><p class="hprice">¥1200－2500 <span>/ 晚</span></p></div>
+    <div class="hcard"><span class="htier ht-mid">中端</span><p class="hname">普陀山假日酒店</p><p class="hnote">近普濟寺，步行方便，環境幽靜，服務佳</p><p class="hprice">¥500－900 <span>/ 晚</span></p></div>
+  </div>
+  <div class="hgrid">
+    <div class="hcard"><span class="htier ht-mid">中端</span><p class="hname">普陀山莊大酒店</p><p class="hnote">老字號，位置居中，電瓶車接駁方便</p><p class="hprice">¥450－700 <span>/ 晚</span></p></div>
+    <div class="hcard"><span class="htier ht-bud">民宿</span><p class="hname">島上特色民宿</p><p class="hnote">攜程/美團搜尋，碼頭附近，氣氛好</p><p class="hprice">¥200－400 <span>/ 晚</span></p></div>
+  </div>
+
+  <div class="tip">
+    <span class="tip-icon">⚠️</span>
+    <p>D3 是<strong>周六</strong>，普陀山週末床位緊張，強烈建議<strong>提前2週以上</strong>在攜程訂房。渡船票也建議提前訂，避免現場排隊。</p>
+  </div>
+</div>
+
+<!-- ===== 注意事項 ===== -->
+<div class="pnl" id="tips">
+  <p class="section-label">出發前準備</p>
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start">
+      <span style="font-size:20px;flex-shrink:0">📱</span>
+      <div><p style="font-size:14px;font-weight:600;margin:0 0 3px">下載滴滴出行</p><p style="font-size:12px;color:#666;margin:0;line-height:1.6">台灣手機號可直接註冊，出發前先設定好付款方式（微信/支付寶），大陸當地才不會手忙腳亂</p></div>
+    </div>
+    <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start">
+      <span style="font-size:20px;flex-shrink:0">🛳️</span>
+      <div><p style="font-size:14px;font-weight:600;margin:0 0 3px">提前訂船票</p><p style="font-size:12px;color:#666;margin:0;line-height:1.6">在攜程搜尋「寧波北侖普陀山高速船」，D2 訂14:00班次、D4 訂09:00班次。周末熱門班次容易售完</p></div>
+    </div>
+    <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start">
+      <span style="font-size:20px;flex-shrink:0">🏨</span>
+      <div><p style="font-size:14px;font-weight:600;margin:0 0 3px">提前訂普陀山住宿</p><p style="font-size:12px;color:#666;margin:0;line-height:1.6">D2、D3 是周五、周六，島上住宿週末緊張，建議出發前2週以上確認訂房</p></div>
+    </div>
+    <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start">
+      <span style="font-size:20px;flex-shrink:0">🎫</span>
+      <div><p style="font-size:14px;font-weight:600;margin:0 0 3px">普陀山景區通票</p><p style="font-size:12px;color:#666;margin:0;line-height:1.6">約¥160－200，含各主要寺廟，入島時在碼頭附近統一購買。香火禁止自帶上島，島內統一購買</p></div>
+    </div>
+    <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start">
+      <span style="font-size:20px;flex-shrink:0">🧥</span>
+      <div><p style="font-size:14px;font-weight:600;margin:0 0 3px">11月天氣準備</p><p style="font-size:12px;color:#666;margin:0;line-height:1.6">寧波11月氣溫約10－17°C，早晚涼，外套必備。普陀山島上海風大，建議多帶一件擋風外套</p></div>
+    </div>
+    <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start">
+      <span style="font-size:20px;flex-shrink:0">💰</span>
+      <div><p style="font-size:14px;font-weight:600;margin:0 0 3px">支付方式</p><p style="font-size:12px;color:#666;margin:0;line-height:1.6">大陸普遍使用微信支付或支付寶，建議出發前設定好。可換少量人民幣現金（¥500左右）應急</p></div>
+    </div>
+    <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start">
+      <span style="font-size:20px;flex-shrink:0">📶</span>
+      <div><p style="font-size:14px;font-weight:600;margin:0 0 3px">網路方案</p><p style="font-size:12px;color:#666;margin:0;line-height:1.6">建議購買大陸上網SIM卡（中國移動/電信/聯通），或開通台灣電信商的大陸漫遊方案。需使用VPN才能使用Google、LINE等服務</p></div>
+    </div>
+  </div>
+
+  <div class="tip" style="margin-top:1.5rem">
+    <span class="tip-icon">🙏</span>
+    <p>普陀山是佛教聖地，參觀寺廟請<strong>著裝整齊</strong>，避免穿短褲背心。寺廟內部分地點不可拍照，請留意現場標示。</p>
+  </div>
+</div>
+
+<div class="footer">
+  寧波・普陀山 五日旅遊指南 · 2026年11月19日－23日
+</div>
+
+<script>
+function switchMain(id,el){
+  document.querySelectorAll('.pnl').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  el.classList.add('on');
+}
+function switchDay(id,el,color){
+  document.querySelectorAll('.dpnl').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.dtab').forEach(t=>{
+    t.classList.remove('on');
+    t.style.background='#fff';t.style.borderColor='#ddd';t.style.color='#666';
+  });
+  document.getElementById(id).classList.add('on');
+  el.classList.add('on');
+  el.style.background=color;el.style.borderColor=color;el.style.color='#fff';
+}
+</script>
+</body>
+</html>
