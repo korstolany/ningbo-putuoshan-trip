@@ -128,6 +128,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
   <div class="ntab" onclick="switchMain('transport',this)">交通 &amp; 費用</div>
   <div class="ntab" onclick="switchMain('hotel',this)">住宿推薦</div>
   <div class="ntab" onclick="switchMain('tips',this)">注意事項</div>
+  <div class="ntab" onclick="switchMain('food',this)">天一美食</div>
 </div>
 
 <!-- ===== 總覽 ===== -->
@@ -362,6 +363,252 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
   <div class="tip" style="margin-top:1.5rem">
     <span class="tip-icon">🙏</span>
     <p>普陀山是佛教聖地，參觀寺廟請<strong>著裝整齊</strong>，避免穿短褲背心。寺廟內部分地點不可拍照，請留意現場標示。</p>
+  </div>
+</div>
+
+<!-- ===== 天一美食 ===== -->
+<div class="pnl" id="food">
+  <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:12px 16px;margin-bottom:1rem;display:flex;gap:10px;align-items:center">
+    <span style="font-size:20px">📍</span>
+    <p style="font-size:12px;color:#666;margin:0;line-height:1.6">以下資料彙整自小紅書、大眾點評、攜程等平台推薦，距離以天一廣場為起點步行估算，出發前建議再確認營業狀況。</p>
+  </div>
+
+  <!-- 小吃 -->
+  <p class="section-label">🥟 小吃・必嚐</p>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:1.5rem">
+
+    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
+            <span style="font-size:14px;font-weight:700">缸鴨狗</span>
+            <span style="font-size:10px;background:#FAEEDA;color:#633806;padding:1px 7px;border-radius:999px;font-weight:600">老字號・1927年</span>
+            <span style="font-size:12px;color:#BA7517">★★★★★</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
+            <span style="font-size:11px;color:#888">📍 天一廣場內・步行0分</span>
+            <span style="font-size:11px;color:#888">💰 人均 ¥25－40</span>
+          </div>
+          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>芝麻湯圓、鮮肉湯圓、油贊子、寧波餛飩</strong><br>寧波最具代表性的百年老字號，糯米湯圓皮薄餡足，芝麻豬油餡是必點。小紅書打卡率第一。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
+      <div style="display:flex;align-items:flex-start;gap:8px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
+            <span style="font-size:14px;font-weight:700">倉橋麵結麵</span>
+            <span style="font-size:10px;background:#EAF3DE;color:#27500A;padding:1px 7px;border-radius:999px;font-weight:600">非遺老字號</span>
+            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
+            <span style="font-size:11px;color:#888">📍 倉橋街・步行約8分（600m）</span>
+            <span style="font-size:11px;color:#888">💰 人均 ¥15－25</span>
+          </div>
+          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>麵結配牛雜湯、黃魚麵、鱔絲麵</strong><br>麵結（千張包肉）是寧波傳統食材，配上濃郁牛雜湯，是本地人從小吃到大的滋味。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
+      <div style="display:flex;align-items:flex-start;gap:8px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
+            <span style="font-size:14px;font-weight:700">苔條年糕 / 炒年糕</span>
+            <span style="font-size:10px;background:#E6F1FB;color:#0C447C;padding:1px 7px;border-radius:999px;font-weight:600">寧波特色</span>
+            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
+            <span style="font-size:11px;color:#888">📍 鼓樓老街一帶・步行約10分</span>
+            <span style="font-size:11px;color:#888">💰 人均 ¥10－20</span>
+          </div>
+          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>苔條炒年糕、炒豬肉年糕</strong><br>寧波年糕用粳米製成，口感Q彈；配上苔條（海苔）翻炒，鹹香獨特，是寧波鹹點心代表。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
+      <div style="display:flex;align-items:flex-start;gap:8px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
+            <span style="font-size:14px;font-weight:700">油贊子（油條）</span>
+            <span style="font-size:10px;background:#FAEEDA;color:#633806;padding:1px 7px;border-radius:999px;font-weight:600">傳統早點</span>
+            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
+            <span style="font-size:11px;color:#888">📍 廣場周邊早點攤・步行5分內</span>
+            <span style="font-size:11px;color:#888">💰 人均 ¥5－12</span>
+          </div>
+          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>油贊子配豆漿、油贊子拌粢飯糰</strong><br>寧波的「油贊子」比一般油條更細長酥脆，配熱豆漿是最地道的早餐吃法。缸鴨狗內也有售。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
+      <div style="display:flex;align-items:flex-start;gap:8px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
+            <span style="font-size:14px;font-weight:700">灰汁糰</span>
+            <span style="font-size:10px;background:#EEEDFE;color:#3C3489;padding:1px 7px;border-radius:999px;font-weight:600">傳統節日糕</span>
+            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
+            <span style="font-size:11px;color:#888">📍 鼓樓老街傳統糕點店</span>
+            <span style="font-size:11px;color:#888">💰 人均 ¥8－15</span>
+          </div>
+          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>原味灰汁糰、芝麻餡灰汁糰</strong><br>用草木灰汁浸泡糯米製成，外皮帶淡淡鹼香，軟糯Q彈，是寧波端午傳統，市區老店全年有售。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
+      <div style="display:flex;align-items:flex-start;gap:8px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
+            <span style="font-size:14px;font-weight:700">豆酥糖</span>
+            <span style="font-size:10px;background:#EAF3DE;color:#27500A;padding:1px 7px;border-radius:999px;font-weight:600">伴手禮首選</span>
+            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
+            <span style="font-size:11px;color:#888">📍 天一廣場內土特產店・步行0分</span>
+            <span style="font-size:11px;color:#888">💰 人均 ¥20－35</span>
+          </div>
+          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>原味豆酥糖、芝麻豆酥糖</strong><br>用黃豆粉、芝麻、麥芽糖製成，入口即化，香甜酥鬆，寧波老字號糕點，也是最受歡迎的伴手禮之一。</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 正餐 -->
+  <p class="section-label">🍽 正餐・必訂</p>
+  <div style="display:flex;flex-direction:column;gap:10px">
+
+    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
+      <div style="display:flex;align-items:flex-start;gap:8px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
+            <span style="font-size:14px;font-weight:700">外婆家</span>
+            <span style="font-size:10px;background:#E6F1FB;color:#0C447C;padding:1px 7px;border-radius:999px;font-weight:600">廣場內・常需等位</span>
+            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
+            <span style="font-size:11px;color:#888">📍 天一廣場國購4樓・步行0分</span>
+            <span style="font-size:11px;color:#888">💰 人均 ¥55－80</span>
+          </div>
+          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>茶香雞、糖醋排骨、藤椒牛肉、外婆紅燒肉</strong><br>連鎖杭幫菜品牌，口味穩定親民，份量足，是帶家人吃飯的好選擇。周末人多，建議提前取號。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
+      <div style="display:flex;align-items:flex-start;gap:8px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
+            <span style="font-size:14px;font-weight:700">甬上名灶</span>
+            <span style="font-size:10px;background:#FAEEDA;color:#633806;padding:1px 7px;border-radius:999px;font-weight:600">本幫菜代表</span>
+            <span style="font-size:12px;color:#BA7517">★★★★★</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
+            <span style="font-size:11px;color:#888">📍 鼓樓附近・步行約12分（約900m）</span>
+            <span style="font-size:11px;color:#888">💰 人均 ¥80－120</span>
+          </div>
+          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>醬青膏蟹、酒釀圓子羹、乾撈粉絲、紅膏嗆蟹</strong><br>正宗寧波本幫菜，以醬醃海鮮聞名，醬青膏蟹鹹鮮入味，是外地人必嚐的寧波滋味。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
+      <div style="display:flex;align-items:flex-start;gap:8px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
+            <span style="font-size:14px;font-weight:700">木木鮮海鮮麵</span>
+            <span style="font-size:10px;background:#E6F1FB;color:#0C447C;padding:1px 7px;border-radius:999px;font-weight:600">小紅書熱門</span>
+            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
+            <span style="font-size:11px;color:#888">📍 解放南路天一店・步行約5分（400m）</span>
+            <span style="font-size:11px;color:#888">💰 人均 ¥40－65</span>
+          </div>
+          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>去骨黃魚麵、梭子蟹麵、鮮蝦麵</strong><br>現點現做，黃魚去骨處理後鋪滿麵條，湯頭清甜鮮美。小紅書多篇筆記推薦為「寧波麵食必吃」。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
+      <div style="display:flex;align-items:flex-start;gap:8px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
+            <span style="font-size:14px;font-weight:700">卿家姆小館</span>
+            <span style="font-size:10px;background:#FAECE7;color:#712B13;padding:1px 7px;border-radius:999px;font-weight:600">生醃控必去</span>
+            <span style="font-size:12px;color:#BA7517">★★★★★</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
+            <span style="font-size:11px;color:#888">📍 鼓樓/天一廣場片區・約1.1km</span>
+            <span style="font-size:11px;color:#888">💰 人均 ¥100－150</span>
+          </div>
+          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>生醃梭子蟹、醉蝦、生醃皮皮蝦</strong><br>寧波生醃海鮮的代表店，「生醃蟹喚醒味蕾」是攜程評語。建議提前預訂，高峰期座位緊張。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
+      <div style="display:flex;align-items:flex-start;gap:8px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
+            <span style="font-size:14px;font-weight:700">阿毛飯店</span>
+            <span style="font-size:10px;background:#EAF3DE;color:#27500A;padding:1px 7px;border-radius:999px;font-weight:600">本地人最愛</span>
+            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
+            <span style="font-size:11px;color:#888">📍 鼓樓老城區・步行約12分</span>
+            <span style="font-size:11px;color:#888">💰 人均 ¥50－80</span>
+          </div>
+          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>紅燒大黃魚、雪菜毛豆、寧波霉乾菜扣肉</strong><br>老寧波家常菜館，價格實惠、份量大，深受本地人喜愛。沒有花俏裝潢，吃的就是道地家鄉味。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
+      <div style="display:flex;align-items:flex-start;gap:8px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
+            <span style="font-size:14px;font-weight:700">大漁鐵板燒</span>
+            <span style="font-size:10px;background:#EEEDFE;color:#3C3489;padding:1px 7px;border-radius:999px;font-weight:600">晚餐首選</span>
+            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
+            <span style="font-size:11px;color:#888">📍 天一廣場附近・步行約3分</span>
+            <span style="font-size:11px;color:#888">💰 人均 ¥80－130</span>
+          </div>
+          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>現切和牛鐵板燒、海鮮拼盤、鐵板龍蝦</strong><br>氣氛好、適合晚餐聚餐，主廚現場料理，食材新鮮，Trip.com評分穩定，附近上班族常去。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
+      <div style="display:flex;align-items:flex-start;gap:8px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
+            <span style="font-size:14px;font-weight:700">寧海食府</span>
+            <span style="font-size:10px;background:#FAEEDA;color:#633806;padding:1px 7px;border-radius:999px;font-weight:600">海鮮品質最高</span>
+            <span style="font-size:12px;color:#BA7517">★★★★★</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
+            <span style="font-size:11px;color:#888">📍 鼓樓/天一廣場片區・約800m</span>
+            <span style="font-size:11px;color:#888">💰 人均 ¥120－180</span>
+          </div>
+          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>蔥油蟹、清蒸黃魚、蝦蛄（皮皮蝦）</strong><br>寧波老字號海鮮館，價格偏高但海鮮品質是同類中最好，蔥油蟹香氣四溢，適合想吃頂級海鮮的一餐。</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tip" style="margin-top:1rem">
+    <span class="tip-icon">💡</span>
+    <p>寧波湯圓多用<strong>豬油</strong>製餡，忌口者需留意。生醃海鮮為未熟食，腸胃敏感者慎食。部分人氣餐廳（外婆家、卿家姆）建議提前在大眾點評取號或預訂。</p>
   </div>
 </div>
 
