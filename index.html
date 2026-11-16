@@ -123,6 +123,8 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
 .rcard-price{font-size:11px;font-weight:600;color:#993C1D}
 .rcard-star{font-size:10px;color:#BA7517}
 @media(max-width:520px){.rgrid{grid-template-columns:1fr}}
+.meal-inline{margin:0 0 8px;padding:8px 10px;background:#FEFAF4;border:1px solid #F5E4B0;border-radius:9px}
+.meal-inline .mh{margin-top:.2rem}
 </style>
 </head>
 <body>
@@ -152,10 +154,10 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
   <table class="overview-table">
     <thead><tr><th>日期</th><th>重點行程</th><th>住宿</th></tr></thead>
     <tbody>
-      <tr><td><span class="day-chip" style="background:#E6F1FB;color:#185FA5">D1 周四 11/19</span></td><td>抵達寧波・天一廣場夜遊</td><td>寧波市區</td></tr>
-      <tr><td><span class="day-chip" style="background:#EAF3DE;color:#3B6D11">D2 周五 11/20</span></td><td>天一閣・月湖 → 搭船到普陀山</td><td>普陀山島上</td></tr>
-      <tr><td><span class="day-chip" style="background:#EEEDFE;color:#3C3489">D3 周六 11/21</span></td><td>普陀山全日：三大寺・觀音像・千步沙</td><td>普陀山島上</td></tr>
-      <tr><td><span class="day-chip" style="background:#FAEEDA;color:#633806">D4 周日 11/22</span></td><td>返寧波・老外灘・城隍廟老街</td><td>寧波市區</td></tr>
+      <tr><td><span class="day-chip" style="background:#E6F1FB;color:#185FA5">D1 周四 11/19</span></td><td>抵達寧波・天一廣場夜遊</td><td style="font-size:12px">溫德姆至尊豪廷</td></tr>
+      <tr><td><span class="day-chip" style="background:#EAF3DE;color:#3B6D11">D2 周五 11/20</span></td><td>天一閣・月湖 → 搭船到普陀山</td><td style="font-size:12px">南曼南曼（普濟寺店）</td></tr>
+      <tr><td><span class="day-chip" style="background:#EEEDFE;color:#3C3489">D3 周六 11/21</span></td><td>普陀山全日：三大寺・觀音像・千步沙</td><td style="font-size:12px">南曼南曼（普濟寺店）</td></tr>
+      <tr><td><span class="day-chip" style="background:#FAEEDA;color:#633806">D4 周日 11/22</span></td><td>返寧波・老外灘・城隍廟老街</td><td style="font-size:12px">溫德姆至尊豪廷</td></tr>
       <tr><td><span class="day-chip" style="background:#E1F5EE;color:#0F6E56">D5 周一 11/23</span></td><td>採買伴手禮 → 機場返台</td><td>—</td></tr>
     </tbody>
   </table>
@@ -187,15 +189,15 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
       <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">19:30</span><span class="ti-name">辦理入住</span><span class="ti-dur">30分</span><span class="tag tg-h">住宿</span></div><p class="ti-note">放好行李，換輕便衣物出門</p></div>
       <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">20:00</span><span class="ti-name">天一廣場夜遊</span><span class="ti-dur">1小時</span><span class="tag tg-n">景點</span></div><p class="ti-note">步行街燈光夜景，感受城市氣氛</p></div>
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">21:00</span><span class="ti-name">晚餐</span><span class="ti-dur">1小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">寧波湯圓、黃魚麵、鍋貼，廣場內餐廳林立</p></div>
-      <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">22:00</span><span class="ti-name">返回休息</span></div><p class="ti-note">明天早起遊天一閣，早點就寢</p></div>
-    </div>
-    <div class="mealbox">
-      <p class="mh">晚餐推薦</p>
-      <div class="rgrid">
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">狀元樓飯店</span><span class="rcard-tag">寧波菜</span></div><p class="rcard-loc">和義路店・廣場步行5分</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">湧煲記·蟹煲</span><span class="rcard-tag">海鮮煲</span></div><p class="rcard-loc">天一旗艦店・廣場步行3分</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.5</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">大漁鐵板燒</span><span class="rcard-tag">鐵板燒</span></div><p class="rcard-loc">天一店・廣場步行3分</p><div class="rcard-bot"><span class="rcard-price">¥80-130/人</span><span class="rcard-star">★ 4.8</span></div></div>
+      <div class="meal-inline">
+        <p class="mh">晚餐推薦</p>
+        <div class="rgrid">
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">狀元樓飯店</span><span class="rcard-tag">寧波菜</span></div><p class="rcard-loc">和義路店・廣場步行5分</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">湧煲記·蟹煲</span><span class="rcard-tag">海鮮煲</span></div><p class="rcard-loc">天一旗艦店・廣場步行3分</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.5</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">大漁鐵板燒</span><span class="rcard-tag">鐵板燒</span></div><p class="rcard-loc">天一店・廣場步行3分</p><div class="rcard-bot"><span class="rcard-price">¥80-130/人</span><span class="rcard-star">★ 4.8</span></div></div>
+        </div>
       </div>
+      <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">22:00</span><span class="ti-name">返回休息</span></div><p class="ti-note">明天早起遊天一閣，早點就寢</p></div>
     </div>
   </div>
 
@@ -203,33 +205,37 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
     <div class="day-info"><p class="day-info-title">11月20日（周五）・寧波精華 → 普陀山</p><p class="day-info-sub">住宿：南曼南曼（普濟寺店）</p></div>
     <div class="tl">
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">08:00</span><span class="ti-name">早餐</span><span class="ti-dur">30分</span><span class="tag tg-f">美食</span></div></div>
+      <div class="meal-inline">
+        <p class="mh">早餐推薦</p>
+        <div class="rgrid">
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">如輝奉化點心</span><span class="rcard-tag">寧波點心</span></div><p class="rcard-loc">天一店・距飯店259m</p><div class="rcard-bot"><span class="rcard-price">¥15-25/人</span><span class="rcard-star">★ 4.7</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">倉橋麵結麵</span><span class="rcard-tag">麵食</span></div><p class="rcard-loc">鼓樓老街・步行約10分</p><div class="rcard-bot"><span class="rcard-price">¥15-25/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">溫德姆酒店早餐</span><span class="rcard-tag">中西式</span></div><p class="rcard-loc">飯店內・最方便</p><div class="rcard-bot"><span class="rcard-price">¥50-80/人</span><span class="rcard-star">★ 4.5</span></div></div>
+        </div>
+      </div>
       <div class="ti"><div class="dot p"></div><div class="ti-top"><span class="ti-time">08:30</span><span class="ti-name">天一閣博物院</span><span class="ti-dur">1.5小時</span><span class="tag tg-t">文化</span></div><p class="ti-note">步行15分鐘即到，中國現存最古老私人藏書樓</p></div>
       <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">10:00</span><span class="ti-name">月湖景區散步</span><span class="ti-dur">45分</span><span class="tag tg-n">景觀</span></div><p class="ti-note">緊鄰天一閣，繞湖一圈，拍照怡情</p></div>
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">11:00</span><span class="ti-name">午餐</span><span class="ti-dur">1小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">月湖附近餐廳，吃完回酒店取行李</p></div>
+      <div class="meal-inline">
+        <p class="mh">午餐推薦</p>
+        <div class="rgrid">
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">美宴</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">月湖盛園店・月湖旁步行5分</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">寧海食府</span><span class="rcard-tag">寧波海鮮</span></div><p class="rcard-loc">天一閣望京店・步行15分</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">外婆家</span><span class="rcard-tag">杭幫菜</span></div><p class="rcard-loc">天一國購中心4F・廣場內</p><div class="rcard-bot"><span class="rcard-price">¥55-80/人</span><span class="rcard-star">★ 4.6</span></div></div>
+        </div>
+      </div>
       <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">12:30</span><span class="ti-name">滴滴 → 北侖客運碼頭</span><span class="ti-dur">約45分</span><span class="tag tg-tr">交通</span></div><p class="ti-note">約35km，費用¥90-120，提前購好14:00船票</p></div>
       <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">14:00</span><span class="ti-name">高速船出發</span><span class="ti-dur">75分</span><span class="tag tg-tr">交通</span></div><p class="ti-note">北侖→普陀山，船票約¥140，全程海景</p></div>
       <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">15:30</span><span class="ti-name">抵達普陀山・入住</span><span class="ti-dur">1小時</span><span class="tag tg-h">住宿</span></div><p class="ti-note">島上電瓶車接送，安頓後熟悉環境</p></div>
       <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">17:00</span><span class="ti-name">百步沙海灘</span><span class="ti-dur">1小時</span><span class="tag tg-n">海灘</span></div><p class="ti-note">迎晚風漫步，感受普陀山第一個黃昏</p></div>
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">18:30</span><span class="ti-name">晚餐</span><span class="ti-dur">1小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">島上海鮮或素食餐廳</p></div>
-    </div>
-    <div class="mealbox">
-      <p class="mh">早餐推薦</p>
-      <div class="rgrid">
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">如輝奉化點心</span><span class="rcard-tag">寧波點心</span></div><p class="rcard-loc">天一店・距飯店259m</p><div class="rcard-bot"><span class="rcard-price">¥15-25/人</span><span class="rcard-star">★ 4.7</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">倉橋麵結麵</span><span class="rcard-tag">麵食</span></div><p class="rcard-loc">鼓樓老街・步行約10分</p><div class="rcard-bot"><span class="rcard-price">¥15-25/人</span><span class="rcard-star">★ 4.8</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">溫德姆酒店早餐</span><span class="rcard-tag">中西式</span></div><p class="rcard-loc">飯店內・最方便</p><div class="rcard-bot"><span class="rcard-price">¥50-80/人</span><span class="rcard-star">★ 4.5</span></div></div>
-      </div>
-      <p class="mh">午餐推薦（月湖附近）</p>
-      <div class="rgrid">
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">美宴</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">月湖盛園店・月湖旁步行5分</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">寧海食府</span><span class="rcard-tag">寧波海鮮</span></div><p class="rcard-loc">天一閣望京店・步行15分</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">外婆家</span><span class="rcard-tag">杭幫菜</span></div><p class="rcard-loc">天一國購中心4F・廣場內</p><div class="rcard-bot"><span class="rcard-price">¥55-80/人</span><span class="rcard-star">★ 4.6</span></div></div>
-      </div>
-      <p class="mh">晚餐推薦（普陀山）</p>
-      <div class="rgrid">
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">祥生大酒店·中餐廳</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">普陀山島上・百步沙附近</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">金潮飯店</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">普陀山店・普濟寺附近</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">梵淨小廚</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">觀堂・百步沙附近</p><div class="rcard-bot"><span class="rcard-price">¥70-100/人</span><span class="rcard-star">★ 4.8</span></div></div>
+      <div class="meal-inline">
+        <p class="mh">晚餐推薦（普陀山）</p>
+        <div class="rgrid">
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">祥生大酒店·中餐廳</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">普陀山島上・百步沙附近</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">金潮飯店</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">普陀山店・普濟寺附近</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">梵淨小廚</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">觀堂・百步沙附近</p><div class="rcard-bot"><span class="rcard-price">¥70-100/人</span><span class="rcard-star">★ 4.8</span></div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -238,34 +244,38 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
     <div class="day-info"><p class="day-info-title">11月21日（周六）・普陀山全日深度遊</p><p class="day-info-sub">住宿：南曼南曼（普濟寺店）連住第二晚</p></div>
     <div class="tl">
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">06:30</span><span class="ti-name">早起・簡單早餐</span><span class="ti-dur">30分</span></div><p class="ti-note">趁早人少，景點清淨靜謐</p></div>
+      <div class="meal-inline">
+        <p class="mh">早餐推薦</p>
+        <div class="rgrid">
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">珠盤齋</span><span class="rcard-tag">素食</span></div><p class="rcard-loc">普濟寺內・⚠️ 06:30-09:30</p><div class="rcard-bot"><span class="rcard-price">¥10-15/人</span><span class="rcard-star">★ 4.3</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">酒店早餐</span><span class="rcard-tag">中西式</span></div><p class="rcard-loc">酒店內・最方便</p><div class="rcard-bot"><span class="rcard-price">¥50-80/人</span><span class="rcard-star">★ 4.5</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">法雨寺周邊素麵</span><span class="rcard-tag">素食</span></div><p class="rcard-loc">法雨禪寺附近</p><div class="rcard-bot"><span class="rcard-price">¥10-20/人</span><span class="rcard-star">★ 4.0</span></div></div>
+        </div>
+      </div>
       <div class="ti"><div class="dot p"></div><div class="ti-top"><span class="ti-time">07:00</span><span class="ti-name">普濟禪寺</span><span class="ti-dur">1.5小時</span><span class="tag tg-t">廟宇</span></div><p class="ti-note">普陀山主剎，觀音道場，荷花池景美，早晨香火最靈</p></div>
       <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">08:30</span><span class="ti-name">電瓶車 → 法雨禪寺</span><span class="ti-dur">15分</span><span class="tag tg-tr">¥10</span></div></div>
       <div class="ti"><div class="dot p"></div><div class="ti-top"><span class="ti-time">09:00</span><span class="ti-name">法雨禪寺</span><span class="ti-dur">1小時</span><span class="tag tg-t">廟宇</span></div><p class="ti-note">明代古剎，背山面海，建築宏偉精美</p></div>
       <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">10:00</span><span class="ti-name">索道上佛頂山</span><span class="ti-dur">10分</span><span class="tag tg-tr">¥50來回</span></div></div>
       <div class="ti"><div class="dot p"></div><div class="ti-top"><span class="ti-time">10:15</span><span class="ti-name">慧濟禪寺</span><span class="ti-dur">1小時</span><span class="tag tg-t">廟宇</span></div><p class="ti-note">山頂寺廟，俯瞰全島與大海，三大寺中最高</p></div>
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">12:00</span><span class="ti-name">下山・素齋午餐</span><span class="ti-dur">1.5小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">索道下山，普陀山素麵名物，慢慢用餐休息</p></div>
+      <div class="meal-inline">
+        <p class="mh">午餐推薦</p>
+        <div class="rgrid">
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">西園海鮮排擋</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">普陀山景區</p><div class="rcard-bot"><span class="rcard-price">¥50-80/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">金潮飯店</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">普陀山店・普濟寺附近</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">原製原味</span><span class="rcard-tag">舟山菜</span></div><p class="rcard-loc">普陀山盤龍店</p><div class="rcard-bot"><span class="rcard-price">¥40-70/人</span><span class="rcard-star">★ 4.1</span></div></div>
+        </div>
+      </div>
       <div class="ti"><div class="dot p"></div><div class="ti-top"><span class="ti-time">14:00</span><span class="ti-name">南海觀音聖像</span><span class="ti-dur">1小時</span><span class="tag tg-t">聖地</span></div><p class="ti-note">33公尺高銅像，面向大海，氣勢磅礴，必拍景點</p></div>
       <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">15:30</span><span class="ti-name">千步沙海灘</span><span class="ti-dur">1.5小時</span><span class="tag tg-n">海灘</span></div><p class="ti-note">普陀山最大海灘，漫步、吹海風，11月人少景美</p></div>
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">18:00</span><span class="ti-name">晚餐・早休</span><span class="ti-dur">1小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">明天09:00搭船，行李今晚先整理好</p></div>
-    </div>
-    <div class="mealbox">
-      <p class="mh">早餐推薦</p>
-      <div class="rgrid">
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">珠盤齋</span><span class="rcard-tag">素食</span></div><p class="rcard-loc">普濟寺內・⚠️ 06:30-09:30</p><div class="rcard-bot"><span class="rcard-price">¥10-15/人</span><span class="rcard-star">★ 4.3</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">酒店早餐</span><span class="rcard-tag">中西式</span></div><p class="rcard-loc">酒店內・最方便</p><div class="rcard-bot"><span class="rcard-price">¥50-80/人</span><span class="rcard-star">★ 4.5</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">法雨寺周邊素麵</span><span class="rcard-tag">素食</span></div><p class="rcard-loc">法雨禪寺附近</p><div class="rcard-bot"><span class="rcard-price">¥10-20/人</span><span class="rcard-star">★ 4.0</span></div></div>
-      </div>
-      <p class="mh">午餐推薦</p>
-      <div class="rgrid">
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">西園海鮮排擋</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">普陀山景區</p><div class="rcard-bot"><span class="rcard-price">¥50-80/人</span><span class="rcard-star">★ 4.8</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">金潮飯店</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">普陀山店・普濟寺附近</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">原製原味</span><span class="rcard-tag">舟山菜</span></div><p class="rcard-loc">普陀山盤龍店</p><div class="rcard-bot"><span class="rcard-price">¥40-70/人</span><span class="rcard-star">★ 4.1</span></div></div>
-      </div>
-      <p class="mh">晚餐推薦</p>
-      <div class="rgrid">
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">阿城海鮮</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">普陀山店・景區內</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.8</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">祥生大酒店·中餐廳</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">普陀山島上</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">梵淨小廚</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">觀堂・百步沙附近</p><div class="rcard-bot"><span class="rcard-price">¥70-100/人</span><span class="rcard-star">★ 4.8</span></div></div>
+      <div class="meal-inline">
+        <p class="mh">晚餐推薦</p>
+        <div class="rgrid">
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">阿城海鮮</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">普陀山店・景區內</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">祥生大酒店·中餐廳</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">普陀山島上</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">梵淨小廚</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">觀堂・百步沙附近</p><div class="rcard-bot"><span class="rcard-price">¥70-100/人</span><span class="rcard-star">★ 4.8</span></div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -274,33 +284,37 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
     <div class="day-info"><p class="day-info-title">11月22日（周日）・返回寧波・老外灘</p><p class="day-info-sub">住宿：寧波市區酒店</p></div>
     <div class="tl">
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">07:30</span><span class="ti-name">早餐・退房整理</span><span class="ti-dur">1小時</span></div></div>
+      <div class="meal-inline">
+        <p class="mh">早餐推薦（09:00前完成）</p>
+        <div class="rgrid">
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">酒店早餐</span><span class="rcard-tag">中西式</span></div><p class="rcard-loc">酒店內・退房前用餐</p><div class="rcard-bot"><span class="rcard-price">¥50-80/人</span><span class="rcard-star">★ 4.5</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">珠盤齋</span><span class="rcard-tag">素食</span></div><p class="rcard-loc">普濟寺內・⚠️ 06:30-09:30</p><div class="rcard-bot"><span class="rcard-price">¥10-15/人</span><span class="rcard-star">★ 4.3</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">碼頭附近輕食</span><span class="rcard-tag">包子稀飯</span></div><p class="rcard-loc">碼頭周邊・快速方便</p><div class="rcard-bot"><span class="rcard-price">¥10-20/人</span><span class="rcard-star">★ 3.5</span></div></div>
+        </div>
+      </div>
       <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">09:00</span><span class="ti-name">高速船返寧波</span><span class="ti-dur">75分</span><span class="tag tg-tr">交通</span></div><p class="ti-note">搭早班船，北侖碼頭下船後叫滴滴</p></div>
       <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">10:15</span><span class="ti-name">滴滴 → 老外灘</span><span class="ti-dur">約45分</span><span class="tag tg-tr">¥90-120</span></div><p class="ti-note">北侖→老外灘約35km，直達</p></div>
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">11:30</span><span class="ti-name">午餐・老外灘附近</span><span class="ti-dur">1小時</span><span class="tag tg-f">美食</span></div></div>
+      <div class="meal-inline">
+        <p class="mh">午餐推薦</p>
+        <div class="rgrid">
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">老寧波弄堂菜館</span><span class="rcard-tag">寧波菜</span></div><p class="rcard-loc">老外灘附近・步行可達</p><div class="rcard-bot"><span class="rcard-price">¥60-90/人</span><span class="rcard-star">★ 4.7</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">甬上名灶</span><span class="rcard-tag">寧波本幫</span></div><p class="rcard-loc">市中心・距老外灘約15分</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">E見如故海鮮吧</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">海曙店・鼓樓一帶</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.4</span></div></div>
+        </div>
+      </div>
       <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">13:00</span><span class="ti-name">老外灘散步</span><span class="ti-dur">1.5小時</span><span class="tag tg-n">人文</span></div><p class="ti-note">百年租界建築，沿甬江漫步，拍照絕佳</p></div>
       <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">14:30</span><span class="ti-name">滴滴 → 城隍廟/鼓樓</span><span class="ti-dur">10分</span><span class="tag tg-tr">¥20-25</span></div></div>
       <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">15:00</span><span class="ti-name">城隍廟・鼓樓老街</span><span class="ti-dur">1.5小時</span><span class="tag tg-n">人文</span></div><p class="ti-note">傳統小吃與手工藝品，可先買些伴手禮</p></div>
       <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">16:30</span><span class="ti-name">滴滴 → 酒店 Check-in</span><span class="ti-dur">20分</span><span class="tag tg-tr">¥15-25</span></div></div>
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">18:30</span><span class="ti-name">海鮮大餐・最後晚餐</span><span class="ti-dur">1.5小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">梭子蟹、蛤蜊、黃魚，寧波海鮮大快朵頤</p></div>
-    </div>
-    <div class="mealbox">
-      <p class="mh">早餐推薦（普陀山，09:00前完成）</p>
-      <div class="rgrid">
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">酒店早餐</span><span class="rcard-tag">中西式</span></div><p class="rcard-loc">酒店內・退房前用餐</p><div class="rcard-bot"><span class="rcard-price">¥50-80/人</span><span class="rcard-star">★ 4.5</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">珠盤齋</span><span class="rcard-tag">素食</span></div><p class="rcard-loc">普濟寺內・⚠️ 06:30-09:30</p><div class="rcard-bot"><span class="rcard-price">¥10-15/人</span><span class="rcard-star">★ 4.3</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">碼頭附近輕食</span><span class="rcard-tag">包子稀飯</span></div><p class="rcard-loc">碼頭周邊・快速方便</p><div class="rcard-bot"><span class="rcard-price">¥10-20/人</span><span class="rcard-star">★ 3.5</span></div></div>
-      </div>
-      <p class="mh">午餐推薦（老外灘附近）</p>
-      <div class="rgrid">
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">老寧波弄堂菜館</span><span class="rcard-tag">寧波菜</span></div><p class="rcard-loc">老外灘附近・步行可達</p><div class="rcard-bot"><span class="rcard-price">¥60-90/人</span><span class="rcard-star">★ 4.7</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">甬上名灶</span><span class="rcard-tag">寧波本幫</span></div><p class="rcard-loc">市中心・距老外灘約15分</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">E見如故海鮮吧</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">海曙店・鼓樓一帶</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.4</span></div></div>
-      </div>
-      <p class="mh">晚餐推薦（城隍廟附近）</p>
-      <div class="rgrid">
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">狀元樓飯店</span><span class="rcard-tag">寧波菜</span></div><p class="rcard-loc">和義路店・鼓樓一帶</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">卿家姆小館</span><span class="rcard-tag">寧波私房菜</span></div><p class="rcard-loc">距城隍廟約1.1km</p><div class="rcard-bot"><span class="rcard-price">¥100-150/人</span><span class="rcard-star">★ 4.9</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">寧海食府（總店）</span><span class="rcard-tag">寧波海鮮</span></div><p class="rcard-loc">海曙區・距市中心1.6km</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
+      <div class="meal-inline">
+        <p class="mh">晚餐推薦（城隍廟附近）</p>
+        <div class="rgrid">
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">狀元樓飯店</span><span class="rcard-tag">寧波菜</span></div><p class="rcard-loc">和義路店・鼓樓一帶</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">卿家姆小館</span><span class="rcard-tag">寧波私房菜</span></div><p class="rcard-loc">距城隍廟約1.1km</p><div class="rcard-bot"><span class="rcard-price">¥100-150/人</span><span class="rcard-star">★ 4.9</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">寧海食府（總店）</span><span class="rcard-tag">寧波海鮮</span></div><p class="rcard-loc">海曙區・距市中心1.6km</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -309,25 +323,27 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
     <div class="day-info"><p class="day-info-title">11月23日（周一）・返程日</p><p class="day-info-sub">14:30 起飛，16:10 抵桃園</p></div>
     <div class="tl">
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">08:00</span><span class="ti-name">在地早點</span><span class="ti-dur">1小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">粢飯糰、油條豆漿、湯圓，體驗在地早晨</p></div>
+      <div class="meal-inline">
+        <p class="mh">早餐推薦</p>
+        <div class="rgrid">
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">倉橋麵結麵</span><span class="rcard-tag">麵食</span></div><p class="rcard-loc">鼓樓老街・步行約10分</p><div class="rcard-bot"><span class="rcard-price">¥15-25/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">如輝奉化點心</span><span class="rcard-tag">寧波點心</span></div><p class="rcard-loc">天一店・距飯店259m</p><div class="rcard-bot"><span class="rcard-price">¥15-25/人</span><span class="rcard-star">★ 4.7</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">缸鴨狗</span><span class="rcard-tag">湯圓甜品</span></div><p class="rcard-loc">天一廣場・廣場內</p><div class="rcard-bot"><span class="rcard-price">¥25-40/人</span><span class="rcard-star">★ 4.9</span></div></div>
+        </div>
+      </div>
       <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">09:00</span><span class="ti-name">伴手禮最後採買</span><span class="ti-dur">2小時</span></div><p class="ti-note">超市或天一廣場：苔條、湯圓粉、梅乾菜、奉化芋頭酥</p></div>
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">11:00</span><span class="ti-name">退房・午餐</span><span class="ti-dur">1小時</span></div><p class="ti-note">行李可暫寄酒店，輕裝吃最後一餐</p></div>
+      <div class="meal-inline">
+        <p class="mh">午餐推薦（⚠️ 11:30前用完，12:00出發）</p>
+        <div class="rgrid">
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">缸鴨狗</span><span class="rcard-tag">湯圓快食</span></div><p class="rcard-loc">天一廣場・快速方便</p><div class="rcard-bot"><span class="rcard-price">¥25-40/人</span><span class="rcard-star">★ 4.9</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">外婆家</span><span class="rcard-tag">杭幫菜</span></div><p class="rcard-loc">天一國購中心4F・廣場內</p><div class="rcard-bot"><span class="rcard-price">¥55-80/人</span><span class="rcard-star">★ 4.6</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">機場T2 餐飲區</span><span class="rcard-tag">多種選擇</span></div><p class="rcard-loc">安全過關後・機場內</p><div class="rcard-bot"><span class="rcard-price">¥40-80/人</span><span class="rcard-star">★ 3.5</span></div></div>
+        </div>
+      </div>
       <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">12:00</span><span class="ti-name">出發機場</span><span class="ti-dur">約35分</span><span class="tag tg-tr">交通</span></div><p class="ti-note">滴滴¥65-85 或 大巴¥20，航班14:30，提前2小時到場</p></div>
       <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">12:40</span><span class="ti-name">抵達機場・辦理登機</span></div><p class="ti-note">出境手續留足時間，不要晚於12:00才出發</p></div>
       <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">14:30</span><span class="ti-name">起飛 ✈ 返台灣</span><span class="tag tg-tr">回程</span></div><p class="ti-note">16:10 抵達桃園國際機場</p></div>
-    </div>
-    <div class="mealbox">
-      <p class="mh">早餐推薦</p>
-      <div class="rgrid">
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">倉橋麵結麵</span><span class="rcard-tag">麵食</span></div><p class="rcard-loc">鼓樓老街・步行約10分</p><div class="rcard-bot"><span class="rcard-price">¥15-25/人</span><span class="rcard-star">★ 4.8</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">如輝奉化點心</span><span class="rcard-tag">寧波點心</span></div><p class="rcard-loc">天一店・距飯店259m</p><div class="rcard-bot"><span class="rcard-price">¥15-25/人</span><span class="rcard-star">★ 4.7</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">缸鴨狗</span><span class="rcard-tag">湯圓甜品</span></div><p class="rcard-loc">天一廣場・廣場內</p><div class="rcard-bot"><span class="rcard-price">¥25-40/人</span><span class="rcard-star">★ 4.9</span></div></div>
-      </div>
-      <p class="mh">午餐推薦（⚠️ 需11:30前用完，12:00出發機場）</p>
-      <div class="rgrid">
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">缸鴨狗</span><span class="rcard-tag">湯圓快食</span></div><p class="rcard-loc">天一廣場・快速方便</p><div class="rcard-bot"><span class="rcard-price">¥25-40/人</span><span class="rcard-star">★ 4.9</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">外婆家</span><span class="rcard-tag">杭幫菜</span></div><p class="rcard-loc">天一國購中心4F・廣場內</p><div class="rcard-bot"><span class="rcard-price">¥55-80/人</span><span class="rcard-star">★ 4.6</span></div></div>
-        <div class="rcard"><div class="rcard-top"><span class="rcard-name">機場T2 餐飲區</span><span class="rcard-tag">多種選擇</span></div><p class="rcard-loc">安全過關後・機場內</p><div class="rcard-bot"><span class="rcard-price">¥40-80/人</span><span class="rcard-star">★ 3.5</span></div></div>
-      </div>
     </div>
   </div>
 </div>
