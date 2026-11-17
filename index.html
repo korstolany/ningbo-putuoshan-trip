@@ -125,6 +125,52 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
 @media(max-width:520px){.rgrid{grid-template-columns:1fr}}
 .meal-inline{margin:0 0 8px;padding:8px 10px;background:#FEFAF4;border:1px solid #F5E4B0;border-radius:9px}
 .meal-inline .mh{margin-top:.2rem}
+.fc{background:#fff;border:1px solid #eee;border-radius:12px;padding:11px 13px;display:flex;gap:10px;margin-bottom:8px;align-items:flex-start}
+.fc-img{width:70px;height:70px;border-radius:9px;object-fit:cover;flex-shrink:0;background:#f0ede6}
+.fc-body{flex:1;min-width:0}
+.fc-name{font-size:14px;font-weight:700;color:#1a1a18;margin:0 0 2px}
+.fc-meta{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:3px}
+.fc-tag{font-size:10px;padding:1px 7px;border-radius:999px;font-weight:600;white-space:nowrap}
+.fc-star{font-size:11px;color:#BA7517;white-space:nowrap;margin-left:auto}
+.fc-info{font-size:11px;color:#888;margin-bottom:3px;line-height:1.5}
+.fc-desc{font-size:12px;color:#444;line-height:1.6;margin:0}
+.area-banner{border-radius:12px;padding:11px 16px;margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+@media(max-width:420px){.fc-img{width:58px;height:58px}}
+.day-chip{cursor:pointer;transition:opacity .15s;display:inline-block}
+.day-chip:hover{opacity:.75}
+.fc-detail{background:#f5f4f0;border-radius:8px;padding:8px 10px;margin-top:6px;font-size:11px;color:#555;line-height:1.7;display:none}
+.fc-detail p{margin:0 0 1px}
+.fc-detail-row{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.fc-detail-btn{font-size:10px;padding:2px 10px;border-radius:999px;border:1px solid #ccc;background:#fff;color:#185FA5;text-decoration:none;display:inline-block;white-space:nowrap}
+.fc-detail-btn:hover{background:#E6F1FB}
+.fc-ibtn{font-size:10px;padding:1px 7px;border-radius:999px;border:1px solid #ddd;background:#fff;color:#888;cursor:pointer;white-space:nowrap;margin-left:auto;flex-shrink:0;user-select:none}
+.fc-ibtn:hover{background:#f0ede6;color:#555}
+.rcard-lnk{cursor:pointer}
+.rcard-lnk:hover{color:#185FA5;text-decoration:underline}
+/* sight cards */
+.sc{background:#fff;border:1px solid #eee;border-radius:12px;padding:11px 13px;display:flex;gap:10px;margin-bottom:8px;align-items:flex-start}
+.sc-icon{width:46px;height:46px;border-radius:10px;background:#f5f4f0;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px}
+.sc-body{flex:1;min-width:0}
+.sc-row{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:2px}
+.sc-name{font-size:14px;font-weight:700;color:#1a1a18;margin:0}
+.sc-ticket{font-size:10px;font-weight:700;padding:1px 8px;border-radius:999px;white-space:nowrap}
+.sc-tag{font-size:11px;color:#888;margin:0 0 3px}
+.sc-info{font-size:11px;color:#666;margin:0 0 3px;line-height:1.5}
+.sc-desc{font-size:12px;color:#444;line-height:1.6;margin:0}
+/* hotel info box */
+.hinfo{background:#f5f4f0;border-radius:8px;padding:9px 12px;margin-top:8px;font-size:11px;color:#555;line-height:1.8}
+.buy-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:1rem}
+.buy-card{background:#fff;border:1px solid #eee;border-radius:12px;padding:9px 10px;display:flex;align-items:center;gap:9px}
+.buy-icon-wrap{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.buy-info{min-width:0;flex:1}
+.buy-name{font-size:11px;font-weight:700;color:#1a1a18;margin:0 0 1px;line-height:1.3}
+.buy-price{font-size:10px;color:#185FA5;font-weight:600;margin:0}
+.buy-where{font-size:9px;color:#aaa;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.xhs-tag{display:inline-block;font-size:8px;padding:0 5px;border-radius:999px;background:#FF2442;color:#fff;font-weight:700;margin-left:4px;vertical-align:middle}
+.hinfo p{margin:0}
+.hinfo strong{color:#333}
+
+
 </style>
 </head>
 <body>
@@ -145,7 +191,10 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
   <div class="ntab" onclick="switchMain('transport',this)">交通 &amp; 費用</div>
   <div class="ntab" onclick="switchMain('hotel',this)">住宿推薦</div>
   <div class="ntab" onclick="switchMain('tips',this)">注意事項</div>
-  <div class="ntab" onclick="switchMain('food',this)">天一美食</div>
+  <div class="ntab" onclick="switchMain('food',this)">美食推薦</div>
+  <div class="ntab" onclick="switchMain('shopping',this)">購物推薦</div>
+  <div class="ntab" onclick="switchMain('cafe',this)">☕ 咖啡餐廳</div>
+  <div class="ntab" onclick="switchMain('sights',this)">景點推薦</div>
 </div>
 
 <!-- ===== 總覽 ===== -->
@@ -154,14 +203,58 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
   <table class="overview-table">
     <thead><tr><th>日期</th><th>重點行程</th><th>住宿</th></tr></thead>
     <tbody>
-      <tr><td><span class="day-chip" style="background:#E6F1FB;color:#185FA5">D1 周四 11/19</span></td><td>抵達寧波・天一廣場夜遊</td><td style="font-size:12px">溫德姆至尊豪廷</td></tr>
-      <tr><td><span class="day-chip" style="background:#EAF3DE;color:#3B6D11">D2 周五 11/20</span></td><td>天一閣・月湖 → 搭船到普陀山</td><td style="font-size:12px">南曼南曼（普濟寺店）</td></tr>
-      <tr><td><span class="day-chip" style="background:#EEEDFE;color:#3C3489">D3 周六 11/21</span></td><td>普陀山全日：三大寺・觀音像・千步沙</td><td style="font-size:12px">南曼南曼（普濟寺店）</td></tr>
-      <tr><td><span class="day-chip" style="background:#FAEEDA;color:#633806">D4 周日 11/22</span></td><td>返寧波・老外灘・城隍廟老街</td><td style="font-size:12px">溫德姆至尊豪廷</td></tr>
-      <tr><td><span class="day-chip" style="background:#E1F5EE;color:#0F6E56">D5 周一 11/23</span></td><td>採買伴手禮 → 機場返台</td><td>—</td></tr>
+      <tr><td><span class="day-chip" onclick="goToDay('d1','#185FA5')" style="background:#E6F1FB;color:#185FA5">D1 周四 11/19 ▶</span></td><td>抵達寧波・天一廣場夜遊</td><td style="font-size:12px">凱洲皇冠假日</td></tr>
+      <tr><td><span class="day-chip" onclick="goToDay('d2','#3B6D11')" style="background:#EAF3DE;color:#3B6D11">D2 周五 11/20 ▶</span></td><td>天一閣・月湖 → 搭船到普陀山</td><td style="font-size:12px">南曼南曼（普濟寺店）</td></tr>
+      <tr><td><span class="day-chip" onclick="goToDay('d3','#3C3489')" style="background:#EEEDFE;color:#3C3489">D3 周六 11/21 ▶</span></td><td>普陀山全日：三大寺・觀音像・千步沙</td><td style="font-size:12px">南曼南曼（普濟寺店）</td></tr>
+      <tr><td><span class="day-chip" onclick="goToDay('d4','#633806')" style="background:#FAEEDA;color:#633806">D4 周日 11/22 ▶</span></td><td>返寧波・老外灘・城隍廟老街</td><td style="font-size:12px">溫德姆至尊豪廷</td></tr>
+      <tr><td><span class="day-chip" onclick="goToDay('d5','#0F6E56')" style="background:#E1F5EE;color:#0F6E56">D5 周一 11/23 ▶</span></td><td>採買伴手禮 → 機場返台</td><td>—</td></tr>
     </tbody>
   </table>
 
+
+  <p class="section-label" style="margin-top:1.5rem">🌡 每日天氣速查（11月下旬歷史均值）</p>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:.5rem">
+    <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:8px 4px;text-align:center">
+      <p style="font-size:9px;font-weight:700;color:#185FA5;margin:0 0 3px">D1 11/19 寧波</p>
+      <p style="font-size:20px;margin:0 0 2px">⛅</p>
+      <p style="font-size:13px;font-weight:700;margin:0 0 1px">15 / 9°C</p>
+      <p style="font-size:10px;color:#888;margin:0 0 2px">濕度 75%</p>
+      <p style="font-size:10px;color:#555;margin:0">晴時多雲</p>
+    </div>
+    <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:8px 4px;text-align:center">
+      <p style="font-size:9px;font-weight:700;color:#3B6D11;margin:0 0 3px">D2 11/20 →島</p>
+      <p style="font-size:20px;margin:0 0 2px">☁</p>
+      <p style="font-size:13px;font-weight:700;margin:0 0 1px">14 / 8°C</p>
+      <p style="font-size:10px;color:#888;margin:0 0 2px">濕度 78%</p>
+      <p style="font-size:10px;color:#555;margin:0">多雲</p>
+    </div>
+    <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:8px 4px;text-align:center">
+      <p style="font-size:9px;font-weight:700;color:#3C3489;margin:0 0 3px">D3 11/21 普陀</p>
+      <p style="font-size:20px;margin:0 0 2px">🌤</p>
+      <p style="font-size:13px;font-weight:700;margin:0 0 1px">13 / 7°C</p>
+      <p style="font-size:10px;color:#888;margin:0 0 2px">濕度 82%</p>
+      <p style="font-size:10px;color:#555;margin:0">多雲偶晴</p>
+    </div>
+    <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:8px 4px;text-align:center">
+      <p style="font-size:9px;font-weight:700;color:#633806;margin:0 0 3px">D4 11/22 →甬</p>
+      <p style="font-size:20px;margin:0 0 2px">🌤</p>
+      <p style="font-size:13px;font-weight:700;margin:0 0 1px">14 / 8°C</p>
+      <p style="font-size:10px;color:#888;margin:0 0 2px">濕度 80%</p>
+      <p style="font-size:10px;color:#555;margin:0">多雲轉晴</p>
+    </div>
+    <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:8px 4px;text-align:center">
+      <p style="font-size:9px;font-weight:700;color:#0F6E56;margin:0 0 3px">D5 11/23 寧波</p>
+      <p style="font-size:20px;margin:0 0 2px">⛅</p>
+      <p style="font-size:13px;font-weight:700;margin:0 0 1px">15 / 9°C</p>
+      <p style="font-size:10px;color:#888;margin:0 0 2px">濕度 75%</p>
+      <p style="font-size:10px;color:#555;margin:0">晴時多雲</p>
+    </div>
+  </div>
+  <div style="display:flex;gap:6px;align-items:center;margin-bottom:1rem;flex-wrap:wrap">
+    <span style="font-size:10px;color:#888">🧥 建議：夾克或薄羽絨；普陀山注意防風</span>
+    <span style="font-size:10px;color:#888">·</span>
+    <span style="font-size:10px;color:#888">☔ 11月降雨日約7-8天，建議攜帶摺疊傘</span>
+  </div>
   <p class="section-label" style="margin-top:1.5rem">費用預估</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px">
     <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:12px 14px"><p style="font-size:11px;color:#aaa;margin:0 0 3px">交通（寧波段）</p><p style="font-size:18px;font-weight:700;margin:0">¥345－457</p></div>
@@ -182,19 +275,25 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
   </div>
 
   <div class="dpnl on" id="d1">
-    <div class="day-info"><p class="day-info-title">11月19日（周四）・抵達寧波・天一廣場</p><p class="day-info-sub">住宿：寧波華僑溫德姆至尊豪廷大飯店</p></div>
+    <div class="day-info"><p class="day-info-title">11月19日（周四）・抵達寧波・天一廣場</p><p class="day-info-sub">住宿：寧波凱洲皇冠假日飯店</p><p class="day-info-sub" style="margin-top:5px;padding-top:5px;border-top:1px dashed #f0ede6;color:#555">⛅ 高15°C／低9°C &nbsp;·&nbsp; 💧 濕度 75% &nbsp;·&nbsp; 晴時多雲</p></div>
     <div class="tl">
+      <div style="background:#E6F1FB;border-radius:8px;padding:5px 12px;margin-bottom:10px;font-size:11px;color:#185FA5;text-align:center;font-weight:600;letter-spacing:.5px">🇹🇼 台灣出發段（草屯 → 桃園國際機場）</div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">12:30</span><span class="ti-name">草屯出發・家人接送</span></div><p class="ti-note">家人接送至台中高鐵站，約30分鐘；告知家人出發時間並預留塞車緩衝，到站後直接進入高鐵大廳購票/取票</p></div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">13:11</span><span class="ti-name">高鐵台中→桃園站</span><span class="tag tg-tr">交通</span></div><p class="ti-note">台中高鐵搭乘至桃園站，約36分鐘；建議搭13:11班次（桃園約13:47抵達），刷悠遊卡或提前網購</p></div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">14:00</span><span class="ti-name">桃園高鐵→機場MRT</span></div><p class="ti-note">搭機場捷運（MRT）至T2航廈站，約20分鐘，票價¥35；或搭高鐵站免費接駁巴士（需等候15-20分）</p></div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">14:30</span><span class="ti-name">抵達桃園機場 T2 ・辦理報到</span></div><p class="ti-note">⚠️ 起飛前2.5小時報到：中華航空報到櫃台（T2），確認行李重量限制；通關安檢後在候機室等待</p></div>
+      <div style="border-top:1px dashed #d0ccc3;margin:10px 0 10px;text-align:center;font-size:10px;color:#aaa;padding-top:5px">✈ 以下為台灣時間（與寧波同為 UTC+8）</div>
       <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">17:10</span><span class="ti-name">桃園機場起飛</span><span class="tag tg-tr">出發</span></div></div>
-      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">18:50</span><span class="ti-name">抵達寧波栎社機場</span></div><p class="ti-note">出關取行李，叫滴滴約25分鐘直達酒店（¥65-85）；或由<strong>溫德姆飯店</strong>安排免費機場接送（需提前24小時致電預約）</p></div>
-      <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">19:30</span><span class="ti-name">辦理入住</span><span class="ti-dur">30分</span><span class="tag tg-h">住宿</span></div><p class="ti-note">放好行李，換輕便衣物出門</p></div>
+      <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">18:50</span><span class="ti-name">抵達寧波栎社機場</span></div><p class="ti-note">出關取行李，叫滴滴約25分鐘直達酒店（¥65-85），或計程車約20分鐘（¥45-55）；飯店無機場接駁</p></div>
+      <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">19:30</span><span class="ti-name">辦理入住</span><span class="ti-dur">30分</span><span class="tag tg-h">住宿</span></div><p class="ti-note"><strong>寧波凱洲皇冠假日飯店</strong>・放好行李，換輕便衣物出門</p></div>
       <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">20:00</span><span class="ti-name">天一廣場夜遊</span><span class="ti-dur">1小時</span><span class="tag tg-n">景點</span></div><p class="ti-note">步行街燈光夜景，感受城市氣氛</p></div>
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">21:00</span><span class="ti-name">晚餐</span><span class="ti-dur">1小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">寧波湯圓、黃魚麵、鍋貼，廣場內餐廳林立</p></div>
       <div class="meal-inline">
         <p class="mh">晚餐推薦</p>
         <div class="rgrid">
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">狀元樓飯店</span><span class="rcard-tag">寧波菜</span></div><p class="rcard-loc">和義路店・廣場步行5分</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-狀元樓')">狀元樓飯店 ↗</span><span class="rcard-tag">寧波菜</span></div><p class="rcard-loc">和義路店・廣場步行5分</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
           <div class="rcard"><div class="rcard-top"><span class="rcard-name">湧煲記·蟹煲</span><span class="rcard-tag">海鮮煲</span></div><p class="rcard-loc">天一旗艦店・廣場步行3分</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.5</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">大漁鐵板燒</span><span class="rcard-tag">鐵板燒</span></div><p class="rcard-loc">天一店・廣場步行3分</p><div class="rcard-bot"><span class="rcard-price">¥80-130/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-大漁')">大漁鐵板燒 ↗</span><span class="rcard-tag">鐵板燒</span></div><p class="rcard-loc">天一店・廣場步行3分</p><div class="rcard-bot"><span class="rcard-price">¥80-130/人</span><span class="rcard-star">★ 4.8</span></div></div>
         </div>
       </div>
       <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">22:00</span><span class="ti-name">返回休息</span></div><p class="ti-note">明天早起遊天一閣，早點就寢</p></div>
@@ -202,15 +301,15 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
   </div>
 
   <div class="dpnl" id="d2">
-    <div class="day-info"><p class="day-info-title">11月20日（周五）・寧波精華 → 普陀山</p><p class="day-info-sub">住宿：南曼南曼（普濟寺店）</p></div>
+    <div class="day-info"><p class="day-info-title">11月20日（周五）・寧波精華 → 普陀山</p><p class="day-info-sub">住宿：南曼南曼（普濟寺店）</p><p class="day-info-sub" style="margin-top:5px;padding-top:5px;border-top:1px dashed #f0ede6;color:#555">☁ 高14°C／低8°C &nbsp;·&nbsp; 💧 濕度 78% &nbsp;·&nbsp; 多雲・海上風力3-4級</p></div>
     <div class="tl">
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">08:00</span><span class="ti-name">早餐</span><span class="ti-dur">30分</span><span class="tag tg-f">美食</span></div></div>
       <div class="meal-inline">
         <p class="mh">早餐推薦</p>
         <div class="rgrid">
           <div class="rcard"><div class="rcard-top"><span class="rcard-name">如輝奉化點心</span><span class="rcard-tag">寧波點心</span></div><p class="rcard-loc">天一店・距飯店259m</p><div class="rcard-bot"><span class="rcard-price">¥15-25/人</span><span class="rcard-star">★ 4.7</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">倉橋麵結麵</span><span class="rcard-tag">麵食</span></div><p class="rcard-loc">鼓樓老街・步行約10分</p><div class="rcard-bot"><span class="rcard-price">¥15-25/人</span><span class="rcard-star">★ 4.8</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">溫德姆酒店早餐</span><span class="rcard-tag">中西式</span></div><p class="rcard-loc">飯店內・最方便</p><div class="rcard-bot"><span class="rcard-price">¥50-80/人</span><span class="rcard-star">★ 4.5</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-倉橋')">倉橋麵結麵 ↗</span><span class="rcard-tag">麵食</span></div><p class="rcard-loc">鼓樓老街・步行約10分</p><div class="rcard-bot"><span class="rcard-price">¥15-25/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name">凱洲皇冠假日早餐</span><span class="rcard-tag">中西式</span></div><p class="rcard-loc">飯店內・最方便</p><div class="rcard-bot"><span class="rcard-price">¥50-80/人</span><span class="rcard-star">★ 4.5</span></div></div>
         </div>
       </div>
       <div class="ti"><div class="dot p"></div><div class="ti-top"><span class="ti-time">08:30</span><span class="ti-name">天一閣博物院</span><span class="ti-dur">1.5小時</span><span class="tag tg-t">文化</span></div><p class="ti-note">步行15分鐘即到，中國現存最古老私人藏書樓</p></div>
@@ -220,34 +319,34 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
         <p class="mh">午餐推薦</p>
         <div class="rgrid">
           <div class="rcard"><div class="rcard-top"><span class="rcard-name">美宴</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">月湖盛園店・月湖旁步行5分</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">寧海食府</span><span class="rcard-tag">寧波海鮮</span></div><p class="rcard-loc">天一閣望京店・步行15分</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">外婆家</span><span class="rcard-tag">杭幫菜</span></div><p class="rcard-loc">天一國購中心4F・廣場內</p><div class="rcard-bot"><span class="rcard-price">¥55-80/人</span><span class="rcard-star">★ 4.6</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-寧海食府')">寧海食府 ↗</span><span class="rcard-tag">寧波海鮮</span></div><p class="rcard-loc">天一閣望京店・步行15分</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-外婆家')">外婆家 ↗</span><span class="rcard-tag">杭幫菜</span></div><p class="rcard-loc">天一國購中心4F・廣場內</p><div class="rcard-bot"><span class="rcard-price">¥55-80/人</span><span class="rcard-star">★ 4.6</span></div></div>
         </div>
       </div>
       <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">12:30</span><span class="ti-name">滴滴 → 北侖客運碼頭</span><span class="ti-dur">約45分</span><span class="tag tg-tr">交通</span></div><p class="ti-note">約35km，費用¥90-120，提前購好14:00船票</p></div>
       <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">14:00</span><span class="ti-name">高速船出發</span><span class="ti-dur">75分</span><span class="tag tg-tr">交通</span></div><p class="ti-note">北侖→普陀山，船票約¥140，全程海景</p></div>
-      <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">15:30</span><span class="ti-name">抵達普陀山・入住</span><span class="ti-dur">1小時</span><span class="tag tg-h">住宿</span></div><p class="ti-note">島上電瓶車接送，安頓後熟悉環境</p></div>
+      <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">15:30</span><span class="ti-name">抵達普陀山・入住</span><span class="ti-dur">1小時</span><span class="tag tg-h">住宿</span></div><p class="ti-note"><strong>南曼南曼（普濟寺店）</strong>・島上電瓶車接送，安頓後熟悉環境</p></div>
       <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">17:00</span><span class="ti-name">百步沙海灘</span><span class="ti-dur">1小時</span><span class="tag tg-n">海灘</span></div><p class="ti-note">迎晚風漫步，感受普陀山第一個黃昏</p></div>
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">18:30</span><span class="ti-name">晚餐</span><span class="ti-dur">1小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">島上海鮮或素食餐廳</p></div>
       <div class="meal-inline">
         <p class="mh">晚餐推薦（普陀山）</p>
         <div class="rgrid">
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">祥生大酒店·中餐廳</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">普陀山島上・百步沙附近</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">金潮飯店</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">普陀山店・普濟寺附近</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">梵淨小廚</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">觀堂・百步沙附近</p><div class="rcard-bot"><span class="rcard-price">¥70-100/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-祥生')">祥生大酒店·中餐廳 ↗</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">普陀山島上・百步沙附近</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-金潮')">金潮飯店 ↗</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">普陀山店・普濟寺附近</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-梵凈')">梵淨小廚 ↗</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">觀堂・百步沙附近</p><div class="rcard-bot"><span class="rcard-price">¥70-100/人</span><span class="rcard-star">★ 4.8</span></div></div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="dpnl" id="d3">
-    <div class="day-info"><p class="day-info-title">11月21日（周六）・普陀山全日深度遊</p><p class="day-info-sub">住宿：南曼南曼（普濟寺店）連住第二晚</p></div>
+    <div class="day-info"><p class="day-info-title">11月21日（周六）・普陀山全日深度遊</p><p class="day-info-sub">住宿：南曼南曼（普濟寺店）連住第二晚</p><p class="day-info-sub" style="margin-top:5px;padding-top:5px;border-top:1px dashed #f0ede6;color:#555">🌤 高13°C／低7°C &nbsp;·&nbsp; 💧 濕度 82% &nbsp;·&nbsp; 多雲偶晴・島上風大早晚加衣</p></div>
     <div class="tl">
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">06:30</span><span class="ti-name">早起・簡單早餐</span><span class="ti-dur">30分</span></div><p class="ti-note">趁早人少，景點清淨靜謐</p></div>
       <div class="meal-inline">
         <p class="mh">早餐推薦</p>
         <div class="rgrid">
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">珠盤齋</span><span class="rcard-tag">素食</span></div><p class="rcard-loc">普濟寺內・⚠️ 06:30-09:30</p><div class="rcard-bot"><span class="rcard-price">¥10-15/人</span><span class="rcard-star">★ 4.3</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-珠盤齋')">珠盤齋 ↗</span><span class="rcard-tag">素食</span></div><p class="rcard-loc">普濟寺內・⚠️ 06:30-09:30</p><div class="rcard-bot"><span class="rcard-price">¥10-15/人</span><span class="rcard-star">★ 4.3</span></div></div>
           <div class="rcard"><div class="rcard-top"><span class="rcard-name">酒店早餐</span><span class="rcard-tag">中西式</span></div><p class="rcard-loc">酒店內・最方便</p><div class="rcard-bot"><span class="rcard-price">¥50-80/人</span><span class="rcard-star">★ 4.5</span></div></div>
           <div class="rcard"><div class="rcard-top"><span class="rcard-name">法雨寺周邊素麵</span><span class="rcard-tag">素食</span></div><p class="rcard-loc">法雨禪寺附近</p><div class="rcard-bot"><span class="rcard-price">¥10-20/人</span><span class="rcard-star">★ 4.0</span></div></div>
         </div>
@@ -262,8 +361,8 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
         <p class="mh">午餐推薦</p>
         <div class="rgrid">
           <div class="rcard"><div class="rcard-top"><span class="rcard-name">西園海鮮排擋</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">普陀山景區</p><div class="rcard-bot"><span class="rcard-price">¥50-80/人</span><span class="rcard-star">★ 4.8</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">金潮飯店</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">普陀山店・普濟寺附近</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">原製原味</span><span class="rcard-tag">舟山菜</span></div><p class="rcard-loc">普陀山盤龍店</p><div class="rcard-bot"><span class="rcard-price">¥40-70/人</span><span class="rcard-star">★ 4.1</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-金潮')">金潮飯店 ↗</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">普陀山店・普濟寺附近</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-原製')">原製原味 ↗</span><span class="rcard-tag">舟山菜</span></div><p class="rcard-loc">普陀山盤龍店</p><div class="rcard-bot"><span class="rcard-price">¥40-70/人</span><span class="rcard-star">★ 4.1</span></div></div>
         </div>
       </div>
       <div class="ti"><div class="dot p"></div><div class="ti-top"><span class="ti-time">14:00</span><span class="ti-name">南海觀音聖像</span><span class="ti-dur">1小時</span><span class="tag tg-t">聖地</span></div><p class="ti-note">33公尺高銅像，面向大海，氣勢磅礴，必拍景點</p></div>
@@ -272,23 +371,23 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
       <div class="meal-inline">
         <p class="mh">晚餐推薦</p>
         <div class="rgrid">
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">阿城海鮮</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">普陀山店・景區內</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.8</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">祥生大酒店·中餐廳</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">普陀山島上</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">梵淨小廚</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">觀堂・百步沙附近</p><div class="rcard-bot"><span class="rcard-price">¥70-100/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-阿城')">阿城海鮮 ↗</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">普陀山店・景區內</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-祥生')">祥生大酒店·中餐廳 ↗</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">普陀山島上</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-梵凈')">梵淨小廚 ↗</span><span class="rcard-tag">江浙菜</span></div><p class="rcard-loc">觀堂・百步沙附近</p><div class="rcard-bot"><span class="rcard-price">¥70-100/人</span><span class="rcard-star">★ 4.8</span></div></div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="dpnl" id="d4">
-    <div class="day-info"><p class="day-info-title">11月22日（周日）・返回寧波・老外灘</p><p class="day-info-sub">住宿：寧波市區酒店</p></div>
+    <div class="day-info"><p class="day-info-title">11月22日（周日）・返回寧波・老外灘</p><p class="day-info-sub">住宿：寧波華僑溫德姆至尊豪廷大飯店</p><p class="day-info-sub" style="margin-top:5px;padding-top:5px;border-top:1px dashed #f0ede6;color:#555">🌤 高14°C／低8°C &nbsp;·&nbsp; 💧 濕度 80% &nbsp;·&nbsp; 多雲轉晴</p></div>
     <div class="tl">
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">07:30</span><span class="ti-name">早餐・退房整理</span><span class="ti-dur">1小時</span></div></div>
       <div class="meal-inline">
         <p class="mh">早餐推薦（09:00前完成）</p>
         <div class="rgrid">
           <div class="rcard"><div class="rcard-top"><span class="rcard-name">酒店早餐</span><span class="rcard-tag">中西式</span></div><p class="rcard-loc">酒店內・退房前用餐</p><div class="rcard-bot"><span class="rcard-price">¥50-80/人</span><span class="rcard-star">★ 4.5</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">珠盤齋</span><span class="rcard-tag">素食</span></div><p class="rcard-loc">普濟寺內・⚠️ 06:30-09:30</p><div class="rcard-bot"><span class="rcard-price">¥10-15/人</span><span class="rcard-star">★ 4.3</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-珠盤齋')">珠盤齋 ↗</span><span class="rcard-tag">素食</span></div><p class="rcard-loc">普濟寺內・⚠️ 06:30-09:30</p><div class="rcard-bot"><span class="rcard-price">¥10-15/人</span><span class="rcard-star">★ 4.3</span></div></div>
           <div class="rcard"><div class="rcard-top"><span class="rcard-name">碼頭附近輕食</span><span class="rcard-tag">包子稀飯</span></div><p class="rcard-loc">碼頭周邊・快速方便</p><div class="rcard-bot"><span class="rcard-price">¥10-20/人</span><span class="rcard-star">★ 3.5</span></div></div>
         </div>
       </div>
@@ -299,36 +398,36 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
         <p class="mh">午餐推薦</p>
         <div class="rgrid">
           <div class="rcard"><div class="rcard-top"><span class="rcard-name">老寧波弄堂菜館</span><span class="rcard-tag">寧波菜</span></div><p class="rcard-loc">老外灘附近・步行可達</p><div class="rcard-bot"><span class="rcard-price">¥60-90/人</span><span class="rcard-star">★ 4.7</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">甬上名灶</span><span class="rcard-tag">寧波本幫</span></div><p class="rcard-loc">市中心・距老外灘約15分</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-甬上名灶')">甬上名灶 ↗</span><span class="rcard-tag">寧波本幫</span></div><p class="rcard-loc">市中心・距老外灘約15分</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
           <div class="rcard"><div class="rcard-top"><span class="rcard-name">E見如故海鮮吧</span><span class="rcard-tag">海鮮</span></div><p class="rcard-loc">海曙店・鼓樓一帶</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.4</span></div></div>
         </div>
       </div>
       <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">13:00</span><span class="ti-name">老外灘散步</span><span class="ti-dur">1.5小時</span><span class="tag tg-n">人文</span></div><p class="ti-note">百年租界建築，沿甬江漫步，拍照絕佳</p></div>
       <div class="ti"><div class="dot t"></div><div class="ti-top"><span class="ti-time">14:30</span><span class="ti-name">滴滴 → 城隍廟/鼓樓</span><span class="ti-dur">10分</span><span class="tag tg-tr">¥20-25</span></div></div>
       <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">15:00</span><span class="ti-name">城隍廟・鼓樓老街</span><span class="ti-dur">1.5小時</span><span class="tag tg-n">人文</span></div><p class="ti-note">傳統小吃與手工藝品，可先買些伴手禮</p></div>
-      <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">16:30</span><span class="ti-name">滴滴 → 酒店 Check-in</span><span class="ti-dur">20分</span><span class="tag tg-tr">¥15-25</span></div></div>
+      <div class="ti"><div class="dot h"></div><div class="ti-top"><span class="ti-time">16:30</span><span class="ti-name">滴滴 → 酒店 Check-in</span><span class="ti-dur">20分</span><span class="tag tg-h">住宿</span></div><p class="ti-note"><strong>寧波華僑溫德姆至尊豪廷大飯店</strong>・海曙區柳汀街230號</p></div>
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">18:30</span><span class="ti-name">海鮮大餐・最後晚餐</span><span class="ti-dur">1.5小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">梭子蟹、蛤蜊、黃魚，寧波海鮮大快朵頤</p></div>
       <div class="meal-inline">
         <p class="mh">晚餐推薦（城隍廟附近）</p>
         <div class="rgrid">
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">狀元樓飯店</span><span class="rcard-tag">寧波菜</span></div><p class="rcard-loc">和義路店・鼓樓一帶</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">卿家姆小館</span><span class="rcard-tag">寧波私房菜</span></div><p class="rcard-loc">距城隍廟約1.1km</p><div class="rcard-bot"><span class="rcard-price">¥100-150/人</span><span class="rcard-star">★ 4.9</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">寧海食府（總店）</span><span class="rcard-tag">寧波海鮮</span></div><p class="rcard-loc">海曙區・距市中心1.6km</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-狀元樓')">狀元樓飯店 ↗</span><span class="rcard-tag">寧波菜</span></div><p class="rcard-loc">和義路店・鼓樓一帶</p><div class="rcard-bot"><span class="rcard-price">¥60-100/人</span><span class="rcard-star">★ 4.6</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-卿家姆')">卿家姆小館 ↗</span><span class="rcard-tag">寧波私房菜</span></div><p class="rcard-loc">距城隍廟約1.1km</p><div class="rcard-bot"><span class="rcard-price">¥100-150/人</span><span class="rcard-star">★ 4.9</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-寧海食府')">寧海食府（總店） ↗</span><span class="rcard-tag">寧波海鮮</span></div><p class="rcard-loc">海曙區・距市中心1.6km</p><div class="rcard-bot"><span class="rcard-price">¥80-120/人</span><span class="rcard-star">★ 4.8</span></div></div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="dpnl" id="d5">
-    <div class="day-info"><p class="day-info-title">11月23日（周一）・返程日</p><p class="day-info-sub">14:30 起飛，16:10 抵桃園</p></div>
+    <div class="day-info"><p class="day-info-title">11月23日（周一）・返程日</p><p class="day-info-sub">14:30 起飛，16:10 抵桃園</p><p class="day-info-sub" style="margin-top:5px;padding-top:5px;border-top:1px dashed #f0ede6;color:#555">⛅ 高15°C／低9°C &nbsp;·&nbsp; 💧 濕度 75% &nbsp;·&nbsp; 晴時多雲・日夜溫差6°C</p></div>
     <div class="tl">
       <div class="ti"><div class="dot f"></div><div class="ti-top"><span class="ti-time">08:00</span><span class="ti-name">在地早點</span><span class="ti-dur">1小時</span><span class="tag tg-f">美食</span></div><p class="ti-note">粢飯糰、油條豆漿、湯圓，體驗在地早晨</p></div>
       <div class="meal-inline">
         <p class="mh">早餐推薦</p>
         <div class="rgrid">
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">倉橋麵結麵</span><span class="rcard-tag">麵食</span></div><p class="rcard-loc">鼓樓老街・步行約10分</p><div class="rcard-bot"><span class="rcard-price">¥15-25/人</span><span class="rcard-star">★ 4.8</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-倉橋')">倉橋麵結麵 ↗</span><span class="rcard-tag">麵食</span></div><p class="rcard-loc">鼓樓老街・步行約10分</p><div class="rcard-bot"><span class="rcard-price">¥15-25/人</span><span class="rcard-star">★ 4.8</span></div></div>
           <div class="rcard"><div class="rcard-top"><span class="rcard-name">如輝奉化點心</span><span class="rcard-tag">寧波點心</span></div><p class="rcard-loc">天一店・距飯店259m</p><div class="rcard-bot"><span class="rcard-price">¥15-25/人</span><span class="rcard-star">★ 4.7</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">缸鴨狗</span><span class="rcard-tag">湯圓甜品</span></div><p class="rcard-loc">天一廣場・廣場內</p><div class="rcard-bot"><span class="rcard-price">¥25-40/人</span><span class="rcard-star">★ 4.9</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-缸鴨狗')">缸鴨狗 ↗</span><span class="rcard-tag">湯圓甜品</span></div><p class="rcard-loc">天一廣場・廣場內</p><div class="rcard-bot"><span class="rcard-price">¥25-40/人</span><span class="rcard-star">★ 4.9</span></div></div>
         </div>
       </div>
       <div class="ti"><div class="dot n"></div><div class="ti-top"><span class="ti-time">09:00</span><span class="ti-name">伴手禮最後採買</span><span class="ti-dur">2小時</span></div><p class="ti-note">超市或天一廣場：苔條、湯圓粉、梅乾菜、奉化芋頭酥</p></div>
@@ -336,8 +435,8 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
       <div class="meal-inline">
         <p class="mh">午餐推薦（⚠️ 11:30前用完，12:00出發）</p>
         <div class="rgrid">
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">缸鴨狗</span><span class="rcard-tag">湯圓快食</span></div><p class="rcard-loc">天一廣場・快速方便</p><div class="rcard-bot"><span class="rcard-price">¥25-40/人</span><span class="rcard-star">★ 4.9</span></div></div>
-          <div class="rcard"><div class="rcard-top"><span class="rcard-name">外婆家</span><span class="rcard-tag">杭幫菜</span></div><p class="rcard-loc">天一國購中心4F・廣場內</p><div class="rcard-bot"><span class="rcard-price">¥55-80/人</span><span class="rcard-star">★ 4.6</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-缸鴨狗')">缸鴨狗 ↗</span><span class="rcard-tag">湯圓快食</span></div><p class="rcard-loc">天一廣場・快速方便</p><div class="rcard-bot"><span class="rcard-price">¥25-40/人</span><span class="rcard-star">★ 4.9</span></div></div>
+          <div class="rcard"><div class="rcard-top"><span class="rcard-name rcard-lnk" onclick="goToFood('fc-外婆家')">外婆家 ↗</span><span class="rcard-tag">杭幫菜</span></div><p class="rcard-loc">天一國購中心4F・廣場內</p><div class="rcard-bot"><span class="rcard-price">¥55-80/人</span><span class="rcard-star">★ 4.6</span></div></div>
           <div class="rcard"><div class="rcard-top"><span class="rcard-name">機場T2 餐飲區</span><span class="rcard-tag">多種選擇</span></div><p class="rcard-loc">安全過關後・機場內</p><div class="rcard-bot"><span class="rcard-price">¥40-80/人</span><span class="rcard-star">★ 3.5</span></div></div>
         </div>
       </div>
@@ -376,6 +475,21 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
     </div>
   </div>
 
+
+  <div style="background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden;margin-bottom:10px;margin-top:4px">
+    <div style="background:#E6F1FB;padding:11px 16px;border-bottom:1px solid #d0dcf0">
+      <p style="font-size:13px;font-weight:700;color:#0C447C;margin:0">🛳 船票購買完整說明</p>
+      <p style="font-size:11px;color:#3A6B9C;margin:2px 0 0">寧波北侖客運碼頭 ↔ 普陀山高速船</p>
+    </div>
+    <div style="padding:12px 16px;display:flex;flex-direction:column;gap:7px;font-size:12px;color:#444;line-height:1.6">
+      <p style="margin:0"><strong>購票平台：</strong>攜程（首選）／美團／飛豬 ─ 搜尋「寧波北侖 普陀山 客船」；或掃碼普陀山輪渡官方微信小程序「普陀山輪渡」直接訂購</p>
+      <p style="margin:0"><strong>建議購票時間：</strong>D2（周五）班次建議<strong>出發前5-7天</strong>購買，周末熱門班次易售完；現場購票需排隊且可能無票</p>
+      <p style="margin:0"><strong>需要資料：</strong>每位旅客<strong>護照號碼</strong>（入境台胞證亦可），取票/登船時需驗證</p>
+      <p style="margin:0"><strong>本行程班次：</strong>去程 D2（周五）14:00 北侖出發、回程 D4（周日）09:00 普陀山出發</p>
+      <p style="margin:0"><strong>惡劣天氣：</strong>颱風或大浪可能停航；訂票後加入購票平台的通知，出發前確認班次</p>
+      <p style="margin:0"><strong>上船提示：</strong>提早30分鐘到碼頭辦理登船手續，行李可帶上船（無托運）</p>
+    </div>
+  </div>
   <div class="leg">
     <div class="lh"><div><p class="lh-route">高速船：北侖碼頭 ↔ 普陀山</p><p class="lh-day">D2 去程・D4 回程</p></div></div>
     <div class="lb">
@@ -439,13 +553,23 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
 
 <!-- ===== 住宿 ===== -->
 <div class="pnl" id="hotel">
-  <p class="section-label">寧波・天一廣場周邊<span style="font-size:11px;color:#aaa;margin-left:6px">D1（周四）＋ D4（周日）</span></p>
+  <p class="section-label">寧波・天一廣場周邊<span style="font-size:11px;color:#aaa;margin-left:6px">D1（周四）</span></p>
+  <div style="background:#EAF3DE;border:1px solid #B5D4A0;border-radius:12px;padding:12px 16px;margin-bottom:10px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+      <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;background:#3B6D11;color:#fff">✓ 已選定</span>
+      <span style="font-size:14px;font-weight:700;color:#1a1a18">寧波凱洲皇冠假日飯店</span>
+    </div>
+    <p style="font-size:12px;color:#3d6b1e;margin:0;line-height:1.6">📍 寧波市中心・距機場約15公里・計程車或滴滴約20分鐘（¥45-85）</p>
+    <div class="hinfo"><p>🏠 <strong>地址：</strong>海曙區藥行街129號（天一廣場步行5分）</p><p>📞 <strong>電話：</strong>+86 574 5619 9999</p><p>🕐 <strong>Check-in：</strong>15:00 ／ Check-out：12:00</p><p>🚗 <strong>叫車：</strong>滴滴出行搜尋「凱洲皇冠假日酒店」或至大廳請前台協助叫計程車</p><p>🗣 <strong>叫車說法：</strong>請幫我叫計程車 (Qǐng bāng wǒ jiào jìchéngchē)</p></div>
+  </div>
+  <p class="section-label" style="margin-top:1rem">寧波・天一廣場周邊<span style="font-size:11px;color:#aaa;margin-left:6px">D4（周日）</span></p>
   <div style="background:#EAF3DE;border:1px solid #B5D4A0;border-radius:12px;padding:12px 16px;margin-bottom:10px">
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
       <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;background:#3B6D11;color:#fff">✓ 已選定</span>
       <span style="font-size:14px;font-weight:700;color:#1a1a18">寧波華僑溫德姆至尊豪廷大飯店</span>
     </div>
     <p style="font-size:12px;color:#3d6b1e;margin:0 0 8px;line-height:1.6">📍 海曙區柳汀街230號・距天一廣場約1.7km・滴滴約5分鐘</p>
+    <div class="hinfo"><p>🏠 <strong>地址：</strong>海曙區柳汀街230號（距天一廣場約1.7km）</p><p>📞 <strong>電話：</strong>+86 574 8710 8888（以攜程訂房確認頁為準）</p><p>🕐 <strong>Check-in：</strong>15:00 ／ Check-out：12:00</p><p>🚗 <strong>叫車：</strong>滴滴出行搜尋「溫德姆至尊豪廷」或請前台叫計程車；免費機場接送請提前24小時預約</p></div>
     <div style="background:#fff;border-radius:8px;padding:8px 10px;display:flex;gap:8px;align-items:flex-start">
       <span style="font-size:16px;flex-shrink:0">🚗</span>
       <div><p style="font-size:12px;font-weight:600;margin:0 0 2px;color:#1a1a18">免費機場接送服務</p><p style="font-size:11px;color:#666;margin:0;line-height:1.6">飯店提供免費機場接送，需<strong>提前24小時</strong>向前台預約，告知航班號與抵達時刻</p></div>
@@ -468,6 +592,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
       <span style="font-size:14px;font-weight:700;color:#1a1a18">南曼南曼（普濟寺店）</span>
     </div>
     <p style="font-size:12px;color:#3d6b1e;margin:0;line-height:1.6">📍 普陀山・普濟寺附近・連住兩晚（D2 周五 ＋ D3 周六）</p>
+    <div class="hinfo"><p>🏠 <strong>地址：</strong>普陀山鎮普濟路附近（普濟寺步行1分鐘）</p><p>📞 <strong>電話：</strong>訂房確認頁查詢（攜程/美團訂房頁有聯絡電話）</p><p>🕐 <strong>Check-in：</strong>14:00 ／ Check-out：12:00</p><p>🚗 <strong>島上交通：</strong>島上禁止一般車輛，以電瓶車為主；飯店提供電瓶車接送至碼頭，請事先告知到達班次</p></div>
   </div>
   <p class="section-label" style="margin-top:1rem">其他可考慮</p>
   <div class="hgrid">
@@ -511,11 +636,11 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
     </div>
     <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start">
       <span style="font-size:20px;flex-shrink:0">💰</span>
-      <div><p style="font-size:14px;font-weight:600;margin:0 0 3px">支付方式</p><p style="font-size:12px;color:#666;margin:0;line-height:1.6">大陸普遍使用微信支付或支付寶，建議出發前設定好。可換少量人民幣現金（¥500左右）應急</p></div>
+      <div><p style="font-size:14px;font-weight:600;margin:0 0 4px">支付寶儲值（無大陸門號也可用）</p><p style="font-size:12px;color:#666;margin:0;line-height:1.7">① 下載<strong>支付寶</strong>（中國版 App Store 搜「支付寶」）<br>② 以台灣手機號碼註冊，姓名填護照英文名<br>③ 綁定 Visa 或 Mastercard 信用卡（非台灣聯名卡即可）<br>④ 儲值上限：單次 ¥1,000・年限 ¥50,000（2024年起外籍旅客已放寬）<br>⑤ 大多數商家、餐廳、景點均可掃碼付款<br><span style="color:#BA7517">⚠️ 備用：換約 ¥500 現金應急（偏遠地區/小攤仍有現金只收）</span></p></div>
     </div>
     <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start">
       <span style="font-size:20px;flex-shrink:0">📶</span>
-      <div><p style="font-size:14px;font-weight:600;margin:0 0 3px">網路方案</p><p style="font-size:12px;color:#666;margin:0;line-height:1.6">建議購買大陸上網SIM卡（中國移動/電信/聯通），或開通台灣電信商的大陸漫遊方案。需使用VPN才能使用Google、LINE等服務</p></div>
+      <div><p style="font-size:14px;font-weight:600;margin:0 0 4px">網路方案比較</p><div style="font-size:12px;color:#666;margin:0;line-height:1.7"><p style="margin:0 0 4px"><strong>① eSIM（最推薦）</strong> — Airalo / Nomad App 購買，出發前下載啟用，無需換卡；5日10GB約TWD 300-400</p><p style="margin:0 0 4px"><strong>② 當地SIM卡</strong> — 寧波機場或市區通訊行購買中國聯通/電信/移動，約¥30-80／7天，需出示護照；速度最快</p><p style="margin:0 0 4px"><strong>③ 隨身WiFi租借</strong> — 台灣出發前網購 WIHO/Global WiFi，可全家共用，約TWD 150/天・押金¥500</p><p style="margin:0 0 4px"><strong>④ 電信漫遊</strong> — 最貴（TWD 299-599/天）但最省事，適合行程短或懶得設定</p><p style="margin:0;color:#BA7517"><strong>⚠️ VPN 必須出發前安裝</strong>：Google / YouTube / Instagram / LINE 在大陸全封鎖，VPN 推薦 ExpressVPN 或 NordVPN，進入大陸後無法下載</p></div></div>
     </div>
   </div>
 
@@ -525,257 +650,1162 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f4f0;color:#1a1a18;min-
   </div>
 </div>
 
-<!-- ===== 天一美食 ===== -->
+
+<!-- ===== 購物推薦 ===== -->
+<div class="pnl" id="shopping">
+
+  <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:12px 16px;margin-bottom:1rem;display:flex;gap:10px;align-items:center">
+    <span style="font-size:20px">🛍</span>
+    <p style="font-size:12px;color:#666;margin:0;line-height:1.6">以下推薦以天一廣場及周邊為主，含設計打卡、特色咖啡、服飾、3C 及伴手禮。開放時間建議出發前再次確認。</p>
+  </div>
+
+  <!-- 小紅書必買清單 -->
+  <div class="area-banner" style="background:linear-gradient(135deg,#FFF0F0,#FFD0D0)">
+    <span style="font-size:22px">🛒</span>
+    <div>
+      <p style="font-size:14px;font-weight:700;color:#C41414;margin:0 0 2px">小紅書必買清單 TOP 20 <span class="xhs-tag">🔴</span></p>
+      <p style="font-size:12px;color:#E03030;margin:0">台灣人到大陸最多人推爆・親測不踩雷</p>
+    </div>
+  </div>
+
+  <div class="buy-grid">
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#FFF0F0">🧸</div>
+    <div class="buy-info">
+      <p class="buy-name">泡泡瑪特盲盒</p>
+      <p class="buy-price">¥70-200</p>
+      <p class="buy-where">📍 天一廣場/萬象城</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#FFF0F0">🐾</div>
+    <div class="buy-info">
+      <p class="buy-name">Labubu 玩偶掛件</p>
+      <p class="buy-price">¥99-399</p>
+      <p class="buy-where">📍 天一廣場/萬象城</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#FFF0F0">🎲</div>
+    <div class="buy-info">
+      <p class="buy-name">一番賞・扭蛋</p>
+      <p class="buy-price">¥20-50/次</p>
+      <p class="buy-where">📍 天一廣場B2</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#F9EEF9">💄</div>
+    <div class="buy-info">
+      <p class="buy-name">花西子東方彩妝</p>
+      <p class="buy-price">¥60-280</p>
+      <p class="buy-where">📍 天一廣場美妝區</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#F9EEF9">💋</div>
+    <div class="buy-info">
+      <p class="buy-name">橘朵唇釉</p>
+      <p class="buy-price">¥29-69</p>
+      <p class="buy-where">📍 美妝集合店</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#F9EEF9">✨</div>
+    <div class="buy-info">
+      <p class="buy-name">花知曉眼影盤</p>
+      <p class="buy-price">¥79-159</p>
+      <p class="buy-where">📍 美妝集合店</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#F9EEF9">🌸</div>
+    <div class="buy-info">
+      <p class="buy-name">完美日記氣墊</p>
+      <p class="buy-price">¥89-139</p>
+      <p class="buy-where">📍 天一廣場</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#F9EEF9">🧴</div>
+    <div class="buy-info">
+      <p class="buy-name">百雀羚護膚禮盒</p>
+      <p class="buy-price">¥50-150</p>
+      <p class="buy-where">📍 超市/藥妝店</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#FFF5E0">🥒</div>
+    <div class="buy-info">
+      <p class="buy-name">樂事大陸限定口味</p>
+      <p class="buy-price">¥5-10/包</p>
+      <p class="buy-where">📍 盒馬/超市</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#FFF5E0">🌶</div>
+    <div class="buy-info">
+      <p class="buy-name">衛龍辣條・魔芋爽</p>
+      <p class="buy-price">¥3-15</p>
+      <p class="buy-where">📍 盒馬/超市</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#FFF5E0">🐰</div>
+    <div class="buy-info">
+      <p class="buy-name">大白兔聯名文創</p>
+      <p class="buy-price">¥20-80</p>
+      <p class="buy-where">📍 超市/伴手禮店</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#FFF5E0">🧋</div>
+    <div class="buy-info">
+      <p class="buy-name">旺仔牛奶大罐裝</p>
+      <p class="buy-price">¥20-40</p>
+      <p class="buy-where">📍 盒馬/超市</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#E8F5EE">🦷</div>
+    <div class="buy-info">
+      <p class="buy-name">雲南白藥牙膏</p>
+      <p class="buy-price">¥25-45</p>
+      <p class="buy-where">📍 任何藥房</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#E8F5EE">💚</div>
+    <div class="buy-info">
+      <p class="buy-name">風油精</p>
+      <p class="buy-price">¥3-15</p>
+      <p class="buy-where">📍 藥局/便利店</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#E8F5EE">🏮</div>
+    <div class="buy-info">
+      <p class="buy-name">同仁堂西洋參</p>
+      <p class="buy-price">¥100-300</p>
+      <p class="buy-where">📍 同仁堂門市</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#EAF3DE">🤖</div>
+    <div class="buy-info">
+      <p class="buy-name">石頭/小米掃地機</p>
+      <p class="buy-price">¥699-2999</p>
+      <p class="buy-where">📍 小米之家</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#EAF3DE">🎥</div>
+    <div class="buy-info">
+      <p class="buy-name">DJI Osmo Pocket 3</p>
+      <p class="buy-price">¥2399</p>
+      <p class="buy-where">📍 DJI天一廣場</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#EAF3DE">📱</div>
+    <div class="buy-info">
+      <p class="buy-name">華為限定款手機</p>
+      <p class="buy-price">¥2999起</p>
+      <p class="buy-where">📍 華為智能生活館</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#FFF5E0">🏛</div>
+    <div class="buy-info">
+      <p class="buy-name">天一閣景區文創</p>
+      <p class="buy-price">¥20-150</p>
+      <p class="buy-where">📍 天一閣景區</p>
+    </div>
+  </div>
+  <div class="buy-card">
+    <div class="buy-icon-wrap" style="background:#FFF5E0">🎪</div>
+    <div class="buy-info">
+      <p class="buy-name">名創優品IP聯名款</p>
+      <p class="buy-price">¥29-199</p>
+      <p class="buy-where">📍 天一廣場</p>
+    </div>
+  </div>
+  </div>
+
+  <!-- 設計地標 -->
+  <div class="area-banner" style="background:linear-gradient(135deg,#F3EEF8,#E8DCF5)">
+    <span style="font-size:22px">🏛</span>
+    <div>
+      <p style="font-size:14px;font-weight:700;color:#5B2D8E;margin:0 0 2px">設計地標・必逛空間</p>
+      <p style="font-size:12px;color:#7B4CB5;margin:0">建築師必訪・室內設計強烈</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🏛</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">和義大道 In the Bund</p><span class="sc-ticket" style="background:#F3EEF8;color:#5B2D8E">設計師必訪</span></div>
+      <p class="sc-tag">Benjamin Wood 建築作品・浙東頂級精品聚落</p>
+      <p class="sc-info">📍 海曙區和義路18號・天一廣場步行3分 &nbsp;·&nbsp; 🕐 10:00-22:00</p>
+      <p class="sc-desc">英國建築師 Benjamin Wood 將老廠房改造為臨奉化江的精品商場。外立面保留紅磚工業質感，內部空間高挑通透，LV、Gucci、Prada 等頂奢進駐。各大設計師和建築系學生必來觀摩，建築本身比商場裡的貨品更值得細看。</p>
+    </div>
+  </div>
+
+  <!-- 特色咖啡・烘焙 -->
+  <div class="area-banner" style="background:linear-gradient(135deg,#FDF3E5,#F5E0C0);margin-top:1.5rem">
+    <span style="font-size:22px">☕</span>
+    <div>
+      <p style="font-size:14px;font-weight:700;color:#7A4100;margin:0 0 2px">特色咖啡・烘焙打卡</p>
+      <p style="font-size:12px;color:#9B5600;margin:0">網紅必拍・特色空間・限定口味</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🥐</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">黃油與麵包 BUTTERFUL & CREAMOROUS</p><span class="sc-ticket" style="background:#FAEEDA;color:#633806">¥42/人</span></div>
+      <p class="sc-tag">寧波首店・法式烘焙・大眾點評麵包銷量 No.1</p>
+      <p class="sc-info">📍 天一廣場5-6號門片區 &nbsp;·&nbsp; 🕐 09:00-21:00</p>
+      <p class="sc-desc">歐式復古洋房風格裝潢，玻璃櫥窗整排擺滿可頌、牛角酥、酥皮蛋塔與法式甜點，2萬＋條評論。招牌原味可頌、奶油泡芙酥脆不膩；下午前常賣光，建議早上先買。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">☕</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">星巴克臻選旗艦</p><span class="sc-ticket" style="background:#FAEEDA;color:#633806">¥35-60/人</span></div>
+      <p class="sc-tag">天一廣場2號門・設計感臻選吧台・彩色樓梯打卡</p>
+      <p class="sc-info">📍 天一廣場2號門旁 &nbsp;·&nbsp; 🕐 07:00-22:00</p>
+      <p class="sc-desc">Tripadvisor 寧波咖啡廳 Top 3，天一廣場旗艦規格含臻選吧台，可點烘焙師現場調製的 Reserve 系列。同棟有網美必拍的彩色樓梯，逛完廣場順路打卡。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">☕</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">MIX COFFEE 天一廣場店</p><span class="sc-ticket" style="background:#FAEEDA;color:#633806">¥30-50/人</span></div>
+      <p class="sc-tag">寧波本地品牌・工業風設計空間</p>
+      <p class="sc-info">📍 天一廣場內 &nbsp;·&nbsp; 🕐 09:00-22:00</p>
+      <p class="sc-desc">寧波本地精品咖啡品牌，空間設計現代感強，燈光與陳設在小紅書上話題不斷。偏安靜、不難等位，適合逛到一半找個地方充電休息再出發。</p>
+    </div>
+  </div>
+
+  <!-- 服飾・潮流 -->
+  <div class="area-banner" style="background:linear-gradient(135deg,#E8F4FE,#D0E8FA);margin-top:1.5rem">
+    <span style="font-size:22px">👕</span>
+    <div>
+      <p style="font-size:14px;font-weight:700;color:#0C447C;margin:0 0 2px">服飾・潮流</p>
+      <p style="font-size:12px;color:#3A6B9C;margin:0">寧波本土品牌 ／ 聯名限定 ／ 特色主題店</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🐦</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">太平鳥 PEACEBIRD 旗艦</p><span class="sc-ticket" style="background:#F3EEF8;color:#5B2D8E">本土品牌</span></div>
+      <p class="sc-tag">寧波誕生的時裝集團・全國最完整旗艦</p>
+      <p class="sc-info">📍 天一廣場內 &nbsp;·&nbsp; 🕐 10:00-21:30</p>
+      <p class="sc-desc">總部在寧波的大陸知名時裝集團，旗下含 PEACEBIRD 男女裝、樂町（Ledin）、MATERIAL GIRL 等多線，並有 New Balance、Vans 聯名系列。寧波旗艦規模最大、款式最齊，台灣幾乎買不到，不去不行。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🎀</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">三麗鷗主題店 Sanrio</p><span class="sc-ticket" style="background:#FAEEDA;color:#633806">特色主題</span></div>
+      <p class="sc-tag">Hello Kitty・布丁狗・大陸限定色款</p>
+      <p class="sc-info">📍 天一廣場8號門片區 &nbsp;·&nbsp; 🕐 10:00-21:30</p>
+      <p class="sc-desc">天一廣場8號門聚集日系萌系主題店，三麗鷗官方授權商品款式比台灣部分門市更齊，且有大陸限定色款與聯名商品。適合親子同行或喜歡 kawaii 文化的旅客。</p>
+    </div>
+  </div>
+
+  <!-- 鞋履・運動 -->
+  <div class="area-banner" style="background:linear-gradient(135deg,#FFF0F0,#FFD6D6);margin-top:1.5rem">
+    <span style="font-size:22px">👟</span>
+    <div>
+      <p style="font-size:14px;font-weight:700;color:#8B1A1A;margin:0 0 2px">鞋履・運動品牌</p>
+      <p style="font-size:12px;color:#B53030;margin:0">台灣難買 ／ 大陸獨家款 ／ 旗艦規格</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">👟</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">On 昂跑 寧波首店</p><span class="sc-ticket" style="background:#FFF0F0;color:#8B1A1A">萬象城</span></div>
+      <p class="sc-tag">瑞士跑鞋品牌・2024年7月開幕・lululemon旁</p>
+      <p class="sc-info">📍 江北區萬象城1樓・滴滴約15分 &nbsp;·&nbsp; 🕐 10:00-22:00</p>
+      <p class="sc-desc">寧波唯一 On 直營門市，2024年7月開幕，仿老式地磚裝潢風格獨特。Cloud 5、Cloudrunner 2、Cloudmonster 等全系列試穿。大陸售價有時比台灣低，且有大陸限定色款；台灣通路不一定能買到的 Cloudultra 越野款這裡也有。<br><span style="font-size:10px;color:#aaa">⚠ 位於萬象城，非天一廣場</span></p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🔴</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">李寧 Li-Ning 旗艦</p><span class="sc-ticket" style="background:#FFF0F0;color:#8B1A1A">台灣幾乎沒有</span></div>
+      <p class="sc-tag">中國最大運動品牌・故宮聯名・悟道系列</p>
+      <p class="sc-info">📍 天一廣場內 &nbsp;·&nbsp; 🕐 10:00-21:30</p>
+      <p class="sc-desc">台灣幾乎沒有零售點的大陸頂級運動品牌，近年靠故宮聯名、敦煌聯名、悟道籃球鞋等「新國潮」設計爆紅，紐約、巴黎時裝週都登場過。鞋款設計感強，價格約 ¥300-800，不去不行。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🅰</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">安踏 Anta 旗艦</p><span class="sc-ticket" style="background:#FFF0F0;color:#8B1A1A">台灣沒有</span></div>
+      <p class="sc-tag">全球銷量前三・FILA中國母公司・KT系列</p>
+      <p class="sc-info">📍 天一廣場內 &nbsp;·&nbsp; 🕐 10:00-21:30</p>
+      <p class="sc-desc">寧波本土旗下無、但大陸每間大商場必有的運動巨頭——安踏不只賣運動鞋，它是 FILA 中國、始祖鳥中國（Arc'teryx）的母公司。旗下 KT 系列籃球鞋（Klay Thompson 聯名）台灣買不到，CP 值極高。</p>
+    </div>
+  </div>
+
+  <!-- 3C・科技 -->
+  <div class="area-banner" style="background:linear-gradient(135deg,#E8F5EE,#CCE9D6);margin-top:1.5rem">
+    <span style="font-size:22px">📱</span>
+    <div>
+      <p style="font-size:14px;font-weight:700;color:#1B5E35;margin:0 0 2px">3C・科技</p>
+      <p style="font-size:12px;color:#2E7D52;margin:0">台灣買不到的品牌 ／ 無人機 ／ 智慧家電</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">📱</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">華為智能生活館</p><span class="sc-ticket" style="background:#EAF3DE;color:#27500A">3C 旗艦</span></div>
+      <p class="sc-tag">鴻蒙生態・AI 手機・折疊屏・智慧穿戴</p>
+      <p class="sc-info">📍 天一廣場5-6號門片區 &nbsp;·&nbsp; 🕐 09:30-21:30</p>
+      <p class="sc-desc">台灣無法入手的 Mate 系列、Pura 系列旗艦機、Mate X 折疊屏、AI 眼鏡、FreeBuds 耳機、Watch GT 全線可親手體驗。大陸手機市場競爭激烈，旗艦規格往往比台灣同級機低價不少。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🍎</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">Apple Store 天一廣場</p><span class="sc-ticket" style="background:#EAF3DE;color:#27500A">3C</span></div>
+      <p class="sc-tag">大陸官方直營・Genius Bar 維修預約</p>
+      <p class="sc-info">📍 天一廣場內 &nbsp;·&nbsp; 🕐 10:00-22:00</p>
+      <p class="sc-desc">iPad、MacBook、AirPods 等售價與台灣相近，部分配件（皮套、充電磚）在大陸官方有活動優惠。若有維修需求可現場預約 Genius Bar，較台灣授權維修快且正式。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">📸</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">富士相機體驗店</p><span class="sc-ticket" style="background:#FAEEDA;color:#633806">攝影迷</span></div>
+      <p class="sc-tag">Fujifilm 旗艦・X100VI ／ X-T50 ／ GFX 試拍</p>
+      <p class="sc-info">📍 天一廣場2號門片區 &nbsp;·&nbsp; 🕐 10:00-21:30</p>
+      <p class="sc-desc">可實際試拍 X100VI、X-T50、GFX 中片幅等最新機型，限定色款（米白色、砂金色）在此有售。大陸通路有時比台灣更早到貨。底片模擬色彩控、攝影愛好者必逛。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🖥</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">蘇寧易購</p><span class="sc-ticket" style="background:#EAF3DE;color:#27500A">大型賣場</span></div>
+      <p class="sc-tag">家電・小米生態鏈・大陸獨家品牌</p>
+      <p class="sc-info">📍 天一廣場附近 &nbsp;·&nbsp; 🕐 09:00-21:30</p>
+      <p class="sc-desc">大陸連鎖電器大賣場，小米生態鏈家電、美的、海爾白牌電器品質遠比台灣進口價低，吹風機、吸塵器、小家電可在此比價。現場可議價，刷支付寶有時有滿減優惠。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🟠</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">小米之家 天一廣場店</p><span class="sc-ticket" style="background:#EAF3DE;color:#27500A">台灣沒的</span></div>
+      <p class="sc-tag">完整小米生態鏈・電視／掃地機／電動牙刷</p>
+      <p class="sc-info">📍 海曙區開明街與藥行街交叉口往東北150m・步行0分 &nbsp;·&nbsp; ☎ (0574)83869521 &nbsp;·&nbsp; 🕐 09:30-21:30</p>
+      <p class="sc-desc">台灣沒有官方小米之家，這裡是全品項直營。掃地機器人（石頭/小米款）、智能電視、電動牙刷、空氣清淨機、吹風機等，售價遠低於平行輸入。部分產品如小米 14 系列手機、Redmi Note 系列台灣完全買不到。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🚁</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">DJI 大疆 天一廣場體驗店</p><span class="sc-ticket" style="background:#EAF3DE;color:#27500A">無人機首選</span></div>
+      <p class="sc-tag">無人機・手持穩定器・Osmo 系列全線</p>
+      <p class="sc-info">📍 海曙區水晶街57號（天一廣場旁）&nbsp;·&nbsp; ☎ 13738428999 &nbsp;·&nbsp; 🕐 09:30-20:00</p>
+      <p class="sc-desc">台灣可買到 DJI 部分機型，但農業植保機、部分 FPV 機型受台灣法規限制無法販售，大陸這裡全系列都能試飛體驗。Mini 4 Pro、Air 3S、Osmo Pocket 3 現場可實際操作。售價與台灣相近，但常有官方活動搭配優惠。</p>
+    </div>
+  </div>
+
+  <!-- 伴手禮・文創 -->
+  <div class="area-banner" style="background:linear-gradient(135deg,#FEF4E5,#FBDEB0);margin-top:1.5rem">
+    <span style="font-size:22px">🎁</span>
+    <div>
+      <p style="font-size:14px;font-weight:700;color:#7A4100;margin:0 0 2px">伴手禮・文創</p>
+      <p style="font-size:12px;color:#9B5600;margin:0">寧波獨有・送禮首選・行前記得買</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🏮</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">天一閣文創店</p><span class="sc-ticket" style="background:#FAEEDA;color:#633806">寧波限定</span></div>
+      <p class="sc-tag">中國最古老私家藏書樓・景區限定商品</p>
+      <p class="sc-info">📍 海曙區天一街10號（景區內）・滴滴約5分 &nbsp;·&nbsp; 🕐 08:30-17:00</p>
+      <p class="sc-desc">以范欽藏書、越窯青瓷、骨木鑲嵌等寧波文化為主題的設計商品：竹書筒書籤、青瓷茶杯、鑲嵌工藝小物、天一閣藏書票明信片等。全台灣找不到，最有寧波代表性的伴手禮。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🍡</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">缸鴨狗 伴手禮區</p><span class="sc-ticket" style="background:#FAEEDA;color:#633806">寧波特產</span></div>
+      <p class="sc-tag">湯圓禮盒・苔條年糕・外帶帶走</p>
+      <p class="sc-info">📍 天一廣場內・海曙區開明街10號 &nbsp;·&nbsp; 🕐 07:00-21:30</p>
+      <p class="sc-desc">1927年老字號，冷凍湯圓禮盒裝可外帶，豬油芝麻、鹹蛋黃肉粽等口味。苔條年糕、奉化芋頭酥是另一個必買寧波特產。冷藏商品可於D5早上採買再托運。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🛒</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">盒馬鮮生 寧波特產區</p><span class="sc-ticket" style="background:#F3EEF8;color:#5B2D8E">體驗必去</span></div>
+      <p class="sc-tag">阿里科技超市・冷鏈寧波特產外帶</p>
+      <p class="sc-info">📍 天一廣場附近 &nbsp;·&nbsp; 🕐 08:00-22:00</p>
+      <p class="sc-desc">阿里巴巴旗下科技超市，寧波特產區有冷鏈包裝的梅乾菜扣肉、醬鴨等，包裝符合航空托運標準。可體驗刷臉結帳、掃碼看產地溯源等大陸獨特新零售購物體驗。</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== 咖啡餐廳 ===== -->
+<div class="pnl" id="cafe">
+  <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:12px 16px;margin-bottom:1rem;display:flex;gap:10px;align-items:center">
+    <span style="font-size:20px">📸</span>
+    <p style="font-size:12px;color:#666;margin:0;line-height:1.6">小紅書熱搜・裝潢打卡推薦，以特色空間設計或網紅人氣為主要篩選依據。營業時間建議出發前再次確認。</p>
+  </div>
+
+  <!-- 特色咖啡廳 -->
+  <div class="area-banner" style="background:linear-gradient(135deg,#FFF8EC,#FFE9C4)">
+    <span style="font-size:22px">☕</span>
+    <div>
+      <p style="font-size:14px;font-weight:700;color:#7A4800;margin:0 0 2px">特色咖啡廳</p>
+      <p style="font-size:12px;color:#9B6010;margin:0">設計感・網紅打卡・小紅書熱搜</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🏯</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">OURIO Coffee 噢哩咖啡</p><span class="sc-ticket" style="background:#FFF8EC;color:#7A4800">¥30-60</span></div>
+      <p class="sc-tag">東方禪意美學・2025年最熱門打卡</p>
+      <p class="sc-info">📍 鄞州區岷山路258號里仁新天地 &nbsp;·&nbsp; 🚕 打車約10分（距天一廣場）</p>
+      <p class="sc-desc"><strong>風格：</strong>以「停」為主題，NDB DESIGN 設計事務所操刀，將東方傳統亭閣元素注入現代空間，復古旋轉樓梯 + 巨岩入口。<br>寧波首家<strong>全熱風自烘咖啡工坊</strong>，2025年5月開業即爆，小紅書熱搜款。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🎋</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">毛竹咖啡 Bamboo Coffee Roasters</p><span class="sc-ticket" style="background:#E8F5EE;color:#1A6B40">¥35-60</span></div>
+      <p class="sc-tag">村咖・德式鄉村・竹林水庫景觀</p>
+      <p class="sc-info">📍 江北區慈城鎮毛岙村（竹林湖畔） &nbsp;·&nbsp; ⚠ 市區打車約40分鐘</p>
+      <p class="sc-desc"><strong>風格：</strong>德國老闆Frank將廢棄石頭屋「修舊如舊」，藏於森林覆蓋率極高的竹林水庫旁。<br>親自烘焙咖啡 + 德式水果蛋糕 + 在地楊梅酒，2024年6月開業，適合有租車或包車時繞道一訪。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🏠</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">黃油與麵包</p><span class="sc-ticket" style="background:#FFF8EC;color:#7A4800">¥35-55</span></div>
+      <p class="sc-tag">大眾點評No.1・歐式復古洋房</p>
+      <p class="sc-info">📍 天一廣場5-6號門 &nbsp;·&nbsp; 🕐 09:00-22:00 &nbsp;·&nbsp; 🚶 步行即達</p>
+      <p class="sc-desc"><strong>風格：</strong>殖民地式歐洲洋房外觀，細木框玻璃窗，落地書架，復古英倫氛圍。大眾點評寧波咖啡廳評分第一，招牌黃油厚吐司 + 拿鐵。天一廣場內最好拍的咖啡廳。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🏭</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">MIX COFFEE</p><span class="sc-ticket" style="background:#F0F4FF;color:#1A3B8A">¥30-55</span></div>
+      <p class="sc-tag">工業風・設計師最愛</p>
+      <p class="sc-info">📍 天一廣場內 &nbsp;·&nbsp; 🕐 10:00-22:00 &nbsp;·&nbsp; 🚶 步行即達</p>
+      <p class="sc-desc"><strong>風格：</strong>裸露管線 + 清水泥牆 + 大面積玻璃，工業風設計空間，光線充足，適合下午拍照。<br>常駐設計師、建築師打卡地，空間感勝於食物本身。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🥐</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">麥田工坊</p><span class="sc-ticket" style="background:#E8F5EE;color:#1A6B40">¥30-60</span></div>
+      <p class="sc-tag">北歐烘焙・早午餐網紅</p>
+      <p class="sc-info">📍 萬象匯店 / 月湖店（兩間） &nbsp;·&nbsp; 🕐 08:00-21:00</p>
+      <p class="sc-desc"><strong>風格：</strong>木質暖色調 + 半開放廚房，北歐極簡風。招牌酸奶碗、牛角麵包、可頌。<br>早午餐打卡首選，光線好、座位寬敞，適合慢慢坐。</p>
+    </div>
+  </div>
+
+  <!-- 設計餐廳 -->
+  <div class="area-banner" style="background:linear-gradient(135deg,#FFF0F0,#FFD6D6)">
+    <span style="font-size:22px">🍽</span>
+    <div>
+      <p style="font-size:14px;font-weight:700;color:#C41414;margin:0 0 2px">設計餐廳</p>
+      <p style="font-size:12px;color:#E03030;margin:0">裝潢驚豔・江景或歷史建築</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🏛</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">美宴摩登餐廳</p><span class="sc-ticket" style="background:#FFF8EC;color:#7A4800">¥150-250/人</span></div>
+      <p class="sc-tag">1923年法式洋樓・民國風精緻甬菜</p>
+      <p class="sc-info">📍 江北區槐樹路87號（近解放橋） &nbsp;·&nbsp; ☎ (0574)87351111 &nbsp;·&nbsp; 🕐 11:00-13:30 / 17:00-21:30</p>
+      <p class="sc-desc"><strong>風格：</strong>坐落於百年法式老洋樓（原徐宅・始建於1923年），復古木雕隔屏、民國包廂、老上海背景樂，Trip.com 4.6分。<br>菜系：甬菜+粵菜融合創意，古法掛爐鴨、佛跳牆、精選牛柳粒，建議<strong>提前電話訂位</strong>。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🌸</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">桃花渡</p><span class="sc-ticket" style="background:#FFF0F0;color:#C41414">¥120-200/人</span></div>
+      <p class="sc-tag">江景獨棟・新中式・2024年度最愛</p>
+      <p class="sc-info">📍 和義大道 In the Bund（和義路18號商場內） &nbsp;·&nbsp; 🚶 步行10分（天一廣場）</p>
+      <p class="sc-desc"><strong>風格：</strong>江景獨棟建築，落地窗一覽奉化江，新中式現代裝潢，2024年寧波最受矚目中餐廳。<br>「環境大幅提升了寧波中餐的時尚度」。菜系：創意甬菜 / 浙菜，適合家庭聚餐。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🏮</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">甬上名灶</p><span class="sc-ticket" style="background:#E8F5EE;color:#1A6B40">¥80-120/人</span></div>
+      <p class="sc-tag">復古青磚・正宗本幫甬菜</p>
+      <p class="sc-info">📍 寧波市區（多分店） &nbsp;·&nbsp; 🕐 11:00-21:00</p>
+      <p class="sc-desc"><strong>風格：</strong>青磚木桌、復古燈籠，空間整潔明亮而有老寧波味道。小紅書本地人力推正宗甬菜，紅燒肉、梅干菜扣肉、清蒸黃魚，價位適中，適合嚐地道味。</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== 景點推薦 ===== -->
+<div class="pnl" id="sights">
+  <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:12px 16px;margin-bottom:1rem;display:flex;gap:10px;align-items:center">
+    <span style="font-size:20px">🗺</span>
+    <p style="font-size:12px;color:#666;margin:0;line-height:1.6">景點票價與時間為歷史資訊，出發前建議至<strong>攜程・馬蜂窩</strong>或官方微信公眾號確認最新票價。</p>
+  </div>
+
+  <!-- 寧波天一廣場 -->
+  <div class="area-banner" style="background:linear-gradient(135deg,#E6F1FB,#D4E9F7)">
+    <span style="font-size:22px">🏙</span>
+    <div>
+      <p style="font-size:14px;font-weight:700;color:#0C447C;margin:0 0 2px">寧波・天一廣場周邊</p>
+      <p style="font-size:12px;color:#3A6B9C;margin:0">D1 夜遊 ＋ D2 上午・多數步行可達</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🏛</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">天一閣博物院</p><span class="sc-ticket" style="background:#FAEEDA;color:#633806">¥30</span></div>
+      <p class="sc-tag">中國最古老私家藏書樓・必去NO.1</p>
+      <p class="sc-info">📍 海曙區天一街10號 &nbsp;·&nbsp; 🕐 09:00-17:00（周一閉館）&nbsp;·&nbsp; 🚶 步行15分</p>
+      <p class="sc-desc">明代1561年藏書家范欽所建，保存古籍7萬冊，庭院格局融合江南園林美學。附設秦氏支祠（罕見中式木刻大戲台），聯票參觀價值極高。建議停留1.5-2小時。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🌊</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">月湖景區</p><span class="sc-ticket" style="background:#EAF3DE;color:#27500A">免費</span></div>
+      <p class="sc-tag">明清江南園林・城中湖・散步首選</p>
+      <p class="sc-info">📍 海曙區偃月街 &nbsp;·&nbsp; 🕐 全天開放 &nbsp;·&nbsp; 🚶 步行15分</p>
+      <p class="sc-desc">寧波城中心的月牙形湖泊，環湖有賀秘監祠、柳汀、菊花洲等明清建築，秋末賞楓色佳。傍晚漫步氣氛極好，與天一閣同遊最佳。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🗼</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">天封塔</p><span class="sc-ticket" style="background:#FAEEDA;color:#633806">¥20</span></div>
+      <p class="sc-tag">唐代佛塔・可登頂遠眺寧波</p>
+      <p class="sc-info">📍 海曙區大沙泥街 &nbsp;·&nbsp; 🕐 08:30-17:00 &nbsp;·&nbsp; 🚶 步行5分（天一廣場旁）</p>
+      <p class="sc-desc">唐武德年間建造，六角磚塔共11層，可登頂俯瞰天一廣場及寧波老城，位置在廣場旁，順路必訪。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🏯</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">鼓樓歷史文化街區</p><span class="sc-ticket" style="background:#EAF3DE;color:#27500A">免費</span></div>
+      <p class="sc-tag">明清老建築＋文創小店・夜晚最美</p>
+      <p class="sc-info">📍 海曙區縣學街一帶 &nbsp;·&nbsp; 🕐 全天，商鋪10:00-22:00 &nbsp;·&nbsp; 🚶 步行10分</p>
+      <p class="sc-desc">圍繞舊鼓樓的明清老街區，保留傳統建築立面，現進駐文創咖啡、本地小吃。鼓樓本身為唐代遺跡，夜間燈光亮起最有氣氛。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">⛩</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">城隍廟・城隍廟老街</p><span class="sc-ticket" style="background:#EAF3DE;color:#27500A">免費</span></div>
+      <p class="sc-tag">明洪武年建廟・小吃街集中地</p>
+      <p class="sc-info">📍 海曙區縣學街 &nbsp;·&nbsp; 🕐 廟 07:00-18:00；老街全天 &nbsp;·&nbsp; 🚶 步行10分</p>
+      <p class="sc-desc">寧波城隍廟始建於明洪武年間，廟前老街聚集苔條年糕、灰汁糰、寧波湯圓等傳統小吃，是D4下午的最佳收尾地點。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🏘</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">南塘老街</p><span class="sc-ticket" style="background:#EAF3DE;color:#27500A">免費</span></div>
+      <p class="sc-tag">傳統建築改造・美食文化一條街</p>
+      <p class="sc-info">📍 海曙區南塘河附近 &nbsp;·&nbsp; 🕐 商鋪10:00-22:00 &nbsp;·&nbsp; 🚗 滴滴約10分</p>
+      <p class="sc-desc">沿南塘河修復的明清街屋，聚集寧波本地小吃、文創品牌與咖啡廳，河景加建築拍照效果極佳。若D1夜間有多餘時間可前往。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🏛</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">寧波博物館</p><span class="sc-ticket" style="background:#EAF3DE;color:#27500A">免費</span></div>
+      <p class="sc-tag">建築師王澍代表作・寧波歷史文物</p>
+      <p class="sc-info">📍 鄞州區首南中路1000號 &nbsp;·&nbsp; 🕐 09:00-17:00（周一閉館）&nbsp;·&nbsp; 🚗 滴滴約15分</p>
+      <p class="sc-desc">由普利茲克建築獎得主王澍設計，外牆以寧波老城拆遷舊磚砌成，建築本身就是傑作。館內有良渚文化、越窯青瓷等重要展品。建議對建築有興趣者前往。</p>
+    </div>
+  </div>
+
+  <!-- 普陀山 -->
+  <div class="area-banner" style="background:linear-gradient(135deg,#EAF3DE,#D4EBC8);margin-top:1.5rem">
+    <span style="font-size:22px">⛩</span>
+    <div>
+      <p style="font-size:14px;font-weight:700;color:#27500A;margin:0 0 2px">普陀山・舟山</p>
+      <p style="font-size:12px;color:#3D6B1E;margin:0">D2 下午入島 ＋ D3 全日 ＋ D4 早</p>
+    </div>
+  </div>
+
+  <div style="background:#FAEEDA;border:1px solid #E8D4A0;border-radius:10px;padding:10px 14px;margin-bottom:10px;font-size:12px;color:#633806;line-height:1.6">
+    🎫 <strong>景區通票 ¥160／人</strong>，含普陀山所有寺廟及景點，在碼頭附近購買。各寺廟單獨票 ¥5-6，通票更划算。
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">⛩</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">普濟禪寺</p><span class="sc-ticket" style="background:#FAEEDA;color:#633806">¥5（通票含）</span></div>
+      <p class="sc-tag">普陀山主寺・千年古剎・必訪</p>
+      <p class="sc-info">📍 普陀山鎮普濟路1號 &nbsp;·&nbsp; 🕐 06:00-18:00 &nbsp;·&nbsp; 🚶 步行可達（近碼頭）</p>
+      <p class="sc-desc">普陀山最大寺廟，始建於唐代，主殿圓通寶殿高達32米，殿前荷花池映照殿影。每逢農曆初一十五香火鼎盛，是整個島最重要的朝聖地點。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">⛩</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">法雨禪寺</p><span class="sc-ticket" style="background:#FAEEDA;color:#633806">¥5（通票含）</span></div>
+      <p class="sc-tag">普陀山第二大寺・明代建築精華</p>
+      <p class="sc-info">📍 普陀山東南山腰 &nbsp;·&nbsp; 🕐 06:00-18:00 &nbsp;·&nbsp; 🚌 電瓶車約15分</p>
+      <p class="sc-desc">明萬曆年建，九龍藻井（故宮移贈）是鎮寺之寶。建築群層次分明，依山而建，氣勢磅礡。可與慧濟寺連遊，電瓶車串行。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">⛩</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">慧濟禪寺</p><span class="sc-ticket" style="background:#FAEEDA;color:#633806">¥5（通票含）</span></div>
+      <p class="sc-tag">佛頂山頂・海拔最高寺廟</p>
+      <p class="sc-info">📍 佛頂山頂 &nbsp;·&nbsp; 🕐 06:00-18:00 &nbsp;·&nbsp; 🚌 電瓶車＋步行約30分</p>
+      <p class="sc-desc">位於普陀山最高峰（海拔291m），雲霧繚繞時有"雲中梵宮"美稱，俯瞰東海視野遼闊。由法雨寺步行朝聖路上山約1小時，或搭電瓶車至山腳再步行。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🗿</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">南海觀音銅像</p><span class="sc-ticket" style="background:#FAEEDA;color:#633806">¥6（通票含）</span></div>
+      <p class="sc-tag">33米銅像・普陀山地標</p>
+      <p class="sc-info">📍 普陀山南端（洛迦山對面）&nbsp;·&nbsp; 🕐 07:00-17:00 &nbsp;·&nbsp; 🚌 電瓶車約20分</p>
+      <p class="sc-desc">高33米（含蓮花座）的露天觀音立像，2000年開光。可登上三層蓮花台（需另購蓮花台票¥5），居高眺望海天一色與洛迦山。推薦黃昏前往，光線最美。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🏖</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">千步沙</p><span class="sc-ticket" style="background:#EAF3DE;color:#27500A">免費</span></div>
+      <p class="sc-tag">1.5km白沙灘・觀日出最佳地點</p>
+      <p class="sc-info">📍 普陀山東海岸 &nbsp;·&nbsp; 🕐 全天 &nbsp;·&nbsp; 🚌 電瓶車約10分</p>
+      <p class="sc-desc">島上最長的沙灘，細沙綿延1.5公里，11月浪大但景色壯麗。D3早起可在此看日出（約06:00），配合朝聖安排效果極佳。夏季開放游泳，11月不建議下水。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🕳</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">梵音洞</p><span class="sc-ticket" style="background:#FAEEDA;color:#633806">景區通票含</span></div>
+      <p class="sc-tag">海蝕洞・觀音顯靈傳說地</p>
+      <p class="sc-info">📍 普陀山南天門附近 &nbsp;·&nbsp; 🕐 07:00-17:00 &nbsp;·&nbsp; 🚌 電瓶車約25分</p>
+      <p class="sc-desc">高大的海蝕洞穴，傳說自古即有觀音在此顯靈，洞內設有觀音像，俯視洞底海浪翻湧，震撼力強。與潮音洞列為普陀山兩大海洞奇觀。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🏖</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">朱家尖・白山景區</p><span class="sc-ticket" style="background:#FAEEDA;color:#633806">¥90</span></div>
+      <p class="sc-tag">舟山附近・白沙灘＋海岸奇石</p>
+      <p class="sc-info">📍 朱家尖島（普陀山碼頭→朱家尖渡輪5分）&nbsp;·&nbsp; 🕐 08:00-17:00</p>
+      <p class="sc-desc">朱家尖擁有十里金沙，五個相連沙灘，礁石與白沙交錯，是舟山最美海岸線。若有多餘半天可搭渡船前往，不佔普陀山景區通票，需另購票。</p>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="sc-icon">🐟</div>
+    <div class="sc-body">
+      <div class="sc-row"><p class="sc-name">沈家門漁港</p><span class="sc-ticket" style="background:#EAF3DE;color:#27500A">免費</span></div>
+      <p class="sc-tag">世界三大漁港之一・海鮮夜市</p>
+      <p class="sc-info">📍 舟山市普陀區沈家門 &nbsp;·&nbsp; 🕐 夜市 17:00-23:00 &nbsp;·&nbsp; 🚗 距朱家尖約30分</p>
+      <p class="sc-desc">與挪威卑爾根、秘魯卡亞俄並列世界三大漁港，夜晚碼頭沿街海鮮排檔熱鬧非凡，現撈現炒梭子蟹、小黃魚、跳跳魚。若D4回程有時間可順路。</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== 美食推薦 ===== -->
 <div class="pnl" id="food">
   <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:12px 16px;margin-bottom:1rem;display:flex;gap:10px;align-items:center">
     <span style="font-size:20px">📍</span>
-    <p style="font-size:12px;color:#666;margin:0;line-height:1.6">以下資料彙整自小紅書、大眾點評、攜程等平台推薦，距離以天一廣場為起點步行估算，出發前建議再確認營業狀況。</p>
+    <p style="font-size:12px;color:#666;margin:0;line-height:1.6">以下資料彙整自小紅書、大眾點評、攜程等平台推薦。出發前建議再確認營業狀況，部分熱門餐廳建議提前在大眾點評取號或預訂。</p>
   </div>
 
-  <!-- 小吃 -->
+  <!-- 寧波 -->
+  <div class="area-banner" style="background:linear-gradient(135deg,#E6F1FB,#D4E9F7)">
+    <span style="font-size:22px">🏙</span>
+    <div>
+      <p style="font-size:14px;font-weight:700;color:#0C447C;margin:0 0 2px">寧波・天一廣場附近</p>
+      <p style="font-size:12px;color:#3A6B9C;margin:0">D1 周四 ＋ D2 早 ＋ D4 周日</p>
+    </div>
+  </div>
+
   <p class="section-label">🥟 小吃・必嚐</p>
-  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:1.5rem">
 
-    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
-            <span style="font-size:14px;font-weight:700">缸鴨狗</span>
-            <span style="font-size:10px;background:#FAEEDA;color:#633806;padding:1px 7px;border-radius:999px;font-weight:600">老字號・1927年</span>
-            <span style="font-size:12px;color:#BA7517">★★★★★</span>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
-            <span style="font-size:11px;color:#888">📍 天一廣場內・步行0分</span>
-            <span style="font-size:11px;color:#888">💰 人均 ¥25－40</span>
-          </div>
-          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>芝麻湯圓、鮮肉湯圓、油贊子、寧波餛飩</strong><br>寧波最具代表性的百年老字號，糯米湯圓皮薄餡足，芝麻豬油餡是必點。小紅書打卡率第一。</p>
-        </div>
+  <div class="fc" id="fc-缸鴨狗">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/3/38/Chinese_Tangyuan.jpeg" alt="缸鴨狗" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">缸鴨狗<span class="fc-ibtn" onclick="toggleFoodInfo('fi-缸鴨狗')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#FAEEDA;color:#633806">老字號・1927年</span>
+        <span class="fc-star">★★★★★</span>
       </div>
+      <p class="fc-info">📍 天一廣場內・步行0分 &nbsp;·&nbsp; 💰 ¥25－40/人</p>
+      <p class="fc-desc"><strong>招牌：芝麻湯圓、鮮肉湯圓、油贊子</strong>　寧波百年老字號，糯米湯圓皮薄餡足，芝麻豬油餡是必點，小紅書打卡率第一。</p>
+      <div class="fc-detail" id="fi-缸鴨狗"><p>🏠 <strong>地址：</strong>海曙區開明街10號（天一廣場一樓）</p><p>🕐 <strong>時間：</strong>07:00－21:30</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/缸鴨狗+寧波" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=缸鴨狗 寧波&city=宁波" target="_blank">📍 高德地圖</a></div></div>
     </div>
-
-    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
-      <div style="display:flex;align-items:flex-start;gap:8px">
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
-            <span style="font-size:14px;font-weight:700">倉橋麵結麵</span>
-            <span style="font-size:10px;background:#EAF3DE;color:#27500A;padding:1px 7px;border-radius:999px;font-weight:600">非遺老字號</span>
-            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
-            <span style="font-size:11px;color:#888">📍 倉橋街・步行約8分（600m）</span>
-            <span style="font-size:11px;color:#888">💰 人均 ¥15－25</span>
-          </div>
-          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>麵結配牛雜湯、黃魚麵、鱔絲麵</strong><br>麵結（千張包肉）是寧波傳統食材，配上濃郁牛雜湯，是本地人從小吃到大的滋味。</p>
-        </div>
-      </div>
-    </div>
-
-    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
-      <div style="display:flex;align-items:flex-start;gap:8px">
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
-            <span style="font-size:14px;font-weight:700">苔條年糕 / 炒年糕</span>
-            <span style="font-size:10px;background:#E6F1FB;color:#0C447C;padding:1px 7px;border-radius:999px;font-weight:600">寧波特色</span>
-            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
-            <span style="font-size:11px;color:#888">📍 鼓樓老街一帶・步行約10分</span>
-            <span style="font-size:11px;color:#888">💰 人均 ¥10－20</span>
-          </div>
-          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>苔條炒年糕、炒豬肉年糕</strong><br>寧波年糕用粳米製成，口感Q彈；配上苔條（海苔）翻炒，鹹香獨特，是寧波鹹點心代表。</p>
-        </div>
-      </div>
-    </div>
-
-    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
-      <div style="display:flex;align-items:flex-start;gap:8px">
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
-            <span style="font-size:14px;font-weight:700">油贊子（油條）</span>
-            <span style="font-size:10px;background:#FAEEDA;color:#633806;padding:1px 7px;border-radius:999px;font-weight:600">傳統早點</span>
-            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
-            <span style="font-size:11px;color:#888">📍 廣場周邊早點攤・步行5分內</span>
-            <span style="font-size:11px;color:#888">💰 人均 ¥5－12</span>
-          </div>
-          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>油贊子配豆漿、油贊子拌粢飯糰</strong><br>寧波的「油贊子」比一般油條更細長酥脆，配熱豆漿是最地道的早餐吃法。缸鴨狗內也有售。</p>
-        </div>
-      </div>
-    </div>
-
-    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
-      <div style="display:flex;align-items:flex-start;gap:8px">
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
-            <span style="font-size:14px;font-weight:700">灰汁糰</span>
-            <span style="font-size:10px;background:#EEEDFE;color:#3C3489;padding:1px 7px;border-radius:999px;font-weight:600">傳統節日糕</span>
-            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
-            <span style="font-size:11px;color:#888">📍 鼓樓老街傳統糕點店</span>
-            <span style="font-size:11px;color:#888">💰 人均 ¥8－15</span>
-          </div>
-          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>原味灰汁糰、芝麻餡灰汁糰</strong><br>用草木灰汁浸泡糯米製成，外皮帶淡淡鹼香，軟糯Q彈，是寧波端午傳統，市區老店全年有售。</p>
-        </div>
-      </div>
-    </div>
-
-    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
-      <div style="display:flex;align-items:flex-start;gap:8px">
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
-            <span style="font-size:14px;font-weight:700">豆酥糖</span>
-            <span style="font-size:10px;background:#EAF3DE;color:#27500A;padding:1px 7px;border-radius:999px;font-weight:600">伴手禮首選</span>
-            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
-            <span style="font-size:11px;color:#888">📍 天一廣場內土特產店・步行0分</span>
-            <span style="font-size:11px;color:#888">💰 人均 ¥20－35</span>
-          </div>
-          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>原味豆酥糖、芝麻豆酥糖</strong><br>用黃豆粉、芝麻、麥芽糖製成，入口即化，香甜酥鬆，寧波老字號糕點，也是最受歡迎的伴手禮之一。</p>
-        </div>
-      </div>
-    </div>
-
   </div>
 
-  <!-- 正餐 -->
-  <p class="section-label">🍽 正餐・必訂</p>
-  <div style="display:flex;flex-direction:column;gap:10px">
-
-    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
-      <div style="display:flex;align-items:flex-start;gap:8px">
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
-            <span style="font-size:14px;font-weight:700">外婆家</span>
-            <span style="font-size:10px;background:#E6F1FB;color:#0C447C;padding:1px 7px;border-radius:999px;font-weight:600">廣場內・常需等位</span>
-            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
-            <span style="font-size:11px;color:#888">📍 天一廣場國購4樓・步行0分</span>
-            <span style="font-size:11px;color:#888">💰 人均 ¥55－80</span>
-          </div>
-          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>茶香雞、糖醋排骨、藤椒牛肉、外婆紅燒肉</strong><br>連鎖杭幫菜品牌，口味穩定親民，份量足，是帶家人吃飯的好選擇。周末人多，建議提前取號。</p>
-        </div>
+  <div class="fc" id="fc-倉橋">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/3/39/Pork_Steamed_Wontons.jpg" alt="倉橋麵結麵" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">倉橋麵結麵<span class="fc-ibtn" onclick="toggleFoodInfo('fi-倉橋')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#EAF3DE;color:#27500A">非遺老字號</span>
+        <span class="fc-star">★★★★☆</span>
       </div>
+      <p class="fc-info">📍 倉橋街・步行約8分（600m） &nbsp;·&nbsp; 💰 ¥15－25/人</p>
+      <p class="fc-desc"><strong>招牌：麵結配牛雜湯、黃魚麵、鱔絲麵</strong>　麵結（千張包肉）配濃郁牛雜湯，本地人從小吃到大的滋味。</p>
+      <div class="fc-detail" id="fi-倉橋"><p>🏠 <strong>地址：</strong>海曙區倉橋街（近鼓樓）</p><p>🕐 <strong>時間：</strong>06:00－13:30（售完即止）</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/倉橋麵結麵+寧波" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=倉橋麵結麵 寧波&city=宁波" target="_blank">📍 高德地圖</a></div></div>
     </div>
+  </div>
 
-    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
-      <div style="display:flex;align-items:flex-start;gap:8px">
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
-            <span style="font-size:14px;font-weight:700">甬上名灶</span>
-            <span style="font-size:10px;background:#FAEEDA;color:#633806;padding:1px 7px;border-radius:999px;font-weight:600">本幫菜代表</span>
-            <span style="font-size:12px;color:#BA7517">★★★★★</span>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
-            <span style="font-size:11px;color:#888">📍 鼓樓附近・步行約12分（約900m）</span>
-            <span style="font-size:11px;color:#888">💰 人均 ¥80－120</span>
-          </div>
-          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>醬青膏蟹、酒釀圓子羹、乾撈粉絲、紅膏嗆蟹</strong><br>正宗寧波本幫菜，以醬醃海鮮聞名，醬青膏蟹鹹鮮入味，是外地人必嚐的寧波滋味。</p>
-        </div>
+  <div class="fc" id="fc-苔條">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/A_homemade_nian_gao_from_old_woman_in_yuen_long.jpg" alt="苔條年糕 / 炒年糕" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">苔條年糕 / 炒年糕<span class="fc-ibtn" onclick="toggleFoodInfo('fi-苔條')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#EEEDFE;color:#3C3489">寧波特色</span>
+        <span class="fc-star">★★★★☆</span>
       </div>
+      <p class="fc-info">📍 鼓樓老街一帶・步行約10分 &nbsp;·&nbsp; 💰 ¥10－20/人</p>
+      <p class="fc-desc"><strong>招牌：苔條炒年糕、炒豬肉年糕</strong>　粳米年糕Q彈，配苔條（海苔）翻炒，鹹香獨特，是寧波鹹點心代表。</p>
+      <div class="fc-detail" id="fi-苔條"><p>🏠 <strong>地址：</strong>鼓樓老街一帶（無固定門市）</p><p>🕐 <strong>時間：</strong>依攤位，約10:00－20:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/苔條年糕+寧波" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=苔條年糕 寧波&city=宁波" target="_blank">📍 高德地圖</a></div></div>
     </div>
+  </div>
 
-    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
-      <div style="display:flex;align-items:flex-start;gap:8px">
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
-            <span style="font-size:14px;font-weight:700">木木鮮海鮮麵</span>
-            <span style="font-size:10px;background:#E6F1FB;color:#0C447C;padding:1px 7px;border-radius:999px;font-weight:600">小紅書熱門</span>
-            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
-            <span style="font-size:11px;color:#888">📍 解放南路天一店・步行約5分（400m）</span>
-            <span style="font-size:11px;color:#888">💰 人均 ¥40－65</span>
-          </div>
-          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>去骨黃魚麵、梭子蟹麵、鮮蝦麵</strong><br>現點現做，黃魚去骨處理後鋪滿麵條，湯頭清甜鮮美。小紅書多篇筆記推薦為「寧波麵食必吃」。</p>
-        </div>
+  <div class="fc" id="fc-油贊子">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/7/78/Youtiao.jpg" alt="油贊子（油條）" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">油贊子（油條）<span class="fc-ibtn" onclick="toggleFoodInfo('fi-油贊子')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#FAEEDA;color:#633806">傳統早點</span>
+        <span class="fc-star">★★★★☆</span>
       </div>
+      <p class="fc-info">📍 廣場周邊早點攤・步行5分內 &nbsp;·&nbsp; 💰 ¥5－12/人</p>
+      <p class="fc-desc"><strong>招牌：油贊子配豆漿、油贊子拌粢飯糰</strong>　比一般油條更細長酥脆，配熱豆漿是最地道的早餐吃法，缸鴨狗內也有售。</p>
+      <div class="fc-detail" id="fi-油贊子"><p>🏠 <strong>地址：</strong>廣場周邊早點攤・缸鴨狗內亦有售</p><p>🕐 <strong>時間：</strong>06:00－10:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/油贊子+寧波" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=油贊子 寧波&city=宁波" target="_blank">📍 高德地圖</a></div></div>
     </div>
+  </div>
 
-    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
-      <div style="display:flex;align-items:flex-start;gap:8px">
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
-            <span style="font-size:14px;font-weight:700">卿家姆小館</span>
-            <span style="font-size:10px;background:#FAECE7;color:#712B13;padding:1px 7px;border-radius:999px;font-weight:600">生醃控必去</span>
-            <span style="font-size:12px;color:#BA7517">★★★★★</span>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
-            <span style="font-size:11px;color:#888">📍 鼓樓/天一廣場片區・約1.1km</span>
-            <span style="font-size:11px;color:#888">💰 人均 ¥100－150</span>
-          </div>
-          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>生醃梭子蟹、醉蝦、生醃皮皮蝦</strong><br>寧波生醃海鮮的代表店，「生醃蟹喚醒味蕾」是攜程評語。建議提前預訂，高峰期座位緊張。</p>
-        </div>
+  <div class="fc" id="fc-灰汁糰">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/4/42/Zongzi.jpg" alt="灰汁糰" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">灰汁糰<span class="fc-ibtn" onclick="toggleFoodInfo('fi-灰汁糰')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#EEEDFE;color:#3C3489">傳統糕點</span>
+        <span class="fc-star">★★★★☆</span>
       </div>
+      <p class="fc-info">📍 鼓樓老街傳統糕點店 &nbsp;·&nbsp; 💰 ¥8－15/人</p>
+      <p class="fc-desc"><strong>招牌：原味灰汁糰、芝麻餡灰汁糰</strong>　草木灰汁浸泡糯米製成，外皮帶淡淡鹼香，軟糯Q彈，全年有售。</p>
+      <div class="fc-detail" id="fi-灰汁糰"><p>🏠 <strong>地址：</strong>鼓樓老街傳統糕點店（城隍廟一帶）</p><p>🕐 <strong>時間：</strong>09:00－20:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/灰汁糰+寧波" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=灰汁糰 寧波&city=宁波" target="_blank">📍 高德地圖</a></div></div>
     </div>
+  </div>
 
-    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
-      <div style="display:flex;align-items:flex-start;gap:8px">
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
-            <span style="font-size:14px;font-weight:700">阿毛飯店</span>
-            <span style="font-size:10px;background:#EAF3DE;color:#27500A;padding:1px 7px;border-radius:999px;font-weight:600">本地人最愛</span>
-            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
-            <span style="font-size:11px;color:#888">📍 鼓樓老城區・步行約12分</span>
-            <span style="font-size:11px;color:#888">💰 人均 ¥50－80</span>
-          </div>
-          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>紅燒大黃魚、雪菜毛豆、寧波霉乾菜扣肉</strong><br>老寧波家常菜館，價格實惠、份量大，深受本地人喜愛。沒有花俏裝潢，吃的就是道地家鄉味。</p>
-        </div>
+  <div class="fc" id="fc-豆酥糖">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/A_homemade_nian_gao_from_old_woman_in_yuen_long.jpg" alt="豆酥糖" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">豆酥糖<span class="fc-ibtn" onclick="toggleFoodInfo('fi-豆酥糖')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#EAF3DE;color:#27500A">伴手禮首選</span>
+        <span class="fc-star">★★★★☆</span>
       </div>
+      <p class="fc-info">📍 天一廣場內土特產店・步行0分 &nbsp;·&nbsp; 💰 ¥20－35/人</p>
+      <p class="fc-desc"><strong>招牌：原味豆酥糖、芝麻豆酥糖</strong>　用黃豆粉、芝麻、麥芽糖製成，入口即化，香甜酥鬆，寧波最受歡迎的伴手禮。</p>
+      <div class="fc-detail" id="fi-豆酥糖"><p>🏠 <strong>地址：</strong>天一廣場內土特產店（多處均有）</p><p>🕐 <strong>時間：</strong>09:00－21:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/豆酥糖+寧波" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=豆酥糖 寧波&city=宁波" target="_blank">📍 高德地圖</a></div></div>
     </div>
+  </div>
 
-    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
-      <div style="display:flex;align-items:flex-start;gap:8px">
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
-            <span style="font-size:14px;font-weight:700">大漁鐵板燒</span>
-            <span style="font-size:10px;background:#EEEDFE;color:#3C3489;padding:1px 7px;border-radius:999px;font-weight:600">晚餐首選</span>
-            <span style="font-size:12px;color:#BA7517">★★★★☆</span>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
-            <span style="font-size:11px;color:#888">📍 天一廣場附近・步行約3分</span>
-            <span style="font-size:11px;color:#888">💰 人均 ¥80－130</span>
-          </div>
-          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>現切和牛鐵板燒、海鮮拼盤、鐵板龍蝦</strong><br>氣氛好、適合晚餐聚餐，主廚現場料理，食材新鮮，Trip.com評分穩定，附近上班族常去。</p>
-        </div>
+  <p class="section-label">🍽 海鮮・正餐</p>
+
+  <div class="fc" id="fc-外婆家">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/f/f4/%E7%B4%85%E7%87%92%E8%82%89_Braised_pork_in_brown_sauce.jpg" alt="外婆家" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">外婆家<span class="fc-ibtn" onclick="toggleFoodInfo('fi-外婆家')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#E6F1FB;color:#0C447C">廣場內・常需等位</span>
+        <span class="fc-star">★★★★☆</span>
       </div>
+      <p class="fc-info">📍 天一廣場國購4樓・步行0分 &nbsp;·&nbsp; 💰 ¥55－80/人</p>
+      <p class="fc-desc"><strong>招牌：茶香雞、糖醋排骨、外婆紅燒肉</strong>　連鎖杭幫菜，口味穩定份量足，周末人多建議提前取號。</p>
+      <div class="fc-detail" id="fi-外婆家"><p>🏠 <strong>地址：</strong>江北區和義路18號・天一國購中心4樓</p><p>🕐 <strong>時間：</strong>10:00－21:30（無預約）</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/外婆家+天一廣場+寧波" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=外婆家 天一廣場 寧波&city=宁波" target="_blank">📍 高德地圖</a></div></div>
     </div>
+  </div>
 
-    <div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:13px 16px">
-      <div style="display:flex;align-items:flex-start;gap:8px">
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px">
-            <span style="font-size:14px;font-weight:700">寧海食府</span>
-            <span style="font-size:10px;background:#FAEEDA;color:#633806;padding:1px 7px;border-radius:999px;font-weight:600">海鮮品質最高</span>
-            <span style="font-size:12px;color:#BA7517">★★★★★</span>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:5px">
-            <span style="font-size:11px;color:#888">📍 鼓樓/天一廣場片區・約800m</span>
-            <span style="font-size:11px;color:#888">💰 人均 ¥120－180</span>
-          </div>
-          <p style="font-size:12px;color:#444;line-height:1.6;margin:0">招牌：<strong>蔥油蟹、清蒸黃魚、蝦蛄（皮皮蝦）</strong><br>寧波老字號海鮮館，價格偏高但海鮮品質是同類中最好，蔥油蟹香氣四溢，適合想吃頂級海鮮的一餐。</p>
-        </div>
+  <div class="fc" id="fc-木木鮮">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/d/db/%E5%B0%8F%E9%BB%84%E9%B1%BC.jpg" alt="木木鮮海鮮麵" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">木木鮮海鮮麵<span class="fc-ibtn" onclick="toggleFoodInfo('fi-木木鮮')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#E6F1FB;color:#0C447C">小紅書熱門</span>
+        <span class="fc-star">★★★★☆</span>
       </div>
+      <p class="fc-info">📍 解放南路天一店・步行約5分（400m） &nbsp;·&nbsp; 💰 ¥40－65/人</p>
+      <p class="fc-desc"><strong>招牌：去骨黃魚麵、梭子蟹麵</strong>　現點現做，黃魚去骨後鋪滿麵條，湯頭清甜鮮美，小紅書多篇筆記推薦。</p>
+      <div class="fc-detail" id="fi-木木鮮"><p>🏠 <strong>地址：</strong>海曙區天一廣場附近（藥行街一帶）</p><p>🕐 <strong>時間：</strong>09:00－21:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/木木鮮海鮮麵+寧波" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=木木鮮海鮮麵 寧波&city=宁波" target="_blank">📍 高德地圖</a></div></div>
     </div>
+  </div>
 
+  <div class="fc" id="fc-阿毛">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/f/f4/%E7%B4%85%E7%87%92%E8%82%89_Braised_pork_in_brown_sauce.jpg" alt="阿毛飯店" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">阿毛飯店<span class="fc-ibtn" onclick="toggleFoodInfo('fi-阿毛')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#EAF3DE;color:#27500A">本地人最愛</span>
+        <span class="fc-star">★★★★☆</span>
+      </div>
+      <p class="fc-info">📍 鼓樓老城區・步行約12分 &nbsp;·&nbsp; 💰 ¥50－80/人</p>
+      <p class="fc-desc"><strong>招牌：紅燒大黃魚、雪菜毛豆、寧波霉乾菜扣肉</strong>　老寧波家常菜館，價格實惠份量大，吃的就是道地家鄉味。</p>
+      <div class="fc-detail" id="fi-阿毛"><p>🏠 <strong>地址：</strong>海曙區鼓樓一帶</p><p>🕐 <strong>時間：</strong>10:30－21:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/阿毛飯店+寧波" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=阿毛飯店 寧波&city=宁波" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc" id="fc-阿拉">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/3/39/Pork_Steamed_Wontons.jpg" alt="阿拉名灶" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">阿拉名灶<span class="fc-ibtn" onclick="toggleFoodInfo('fi-阿拉')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#FAEEDA;color:#633806">本幫菜</span>
+        <span class="fc-star">★★★★☆</span>
+      </div>
+      <p class="fc-info">📍 天一廣場附近 &nbsp;·&nbsp; 💰 ¥60－100/人</p>
+      <p class="fc-desc"><strong>招牌：酒釀丸子、寧波鹹魚蒸肉餅</strong>　正宗本幫家常料理，以甜中帶鹹的寧波獨特口味著稱。</p>
+      <div class="fc-detail" id="fi-阿拉"><p>🏠 <strong>地址：</strong>海曙區藥行街一帶（鼓樓附近）</p><p>🕐 <strong>時間：</strong>10:00－21:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/阿拉名灶+寧波" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=阿拉名灶 寧波&city=宁波" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc" id="fc-甬上名灶">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Portunus_trituberculatus.jpg" alt="甬上名灶" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">甬上名灶<span class="fc-ibtn" onclick="toggleFoodInfo('fi-甬上名灶')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#FAEEDA;color:#633806">本幫菜代表</span>
+        <span class="fc-star">★★★★★</span>
+      </div>
+      <p class="fc-info">📍 鼓樓附近・步行約12分 &nbsp;·&nbsp; 💰 ¥80－120/人</p>
+      <p class="fc-desc"><strong>招牌：醬青膏蟹、酒釀圓子羹、紅膏嗆蟹</strong>　正宗寧波本幫菜，以醬醃海鮮聞名，外地人必嚐的寧波滋味。</p>
+      <div class="fc-detail" id="fi-甬上名灶"><p>🏠 <strong>地址：</strong>海曙區解放南路269號</p><p>🕐 <strong>時間：</strong>11:00－14:00；17:00－21:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/甬上名灶+寧波" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=甬上名灶 寧波&city=宁波" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc" id="fc-卿家姆">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Portunus_trituberculatus.jpg" alt="卿家姆小館" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">卿家姆小館<span class="fc-ibtn" onclick="toggleFoodInfo('fi-卿家姆')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#FAECE7;color:#712B13">生醃控必去</span>
+        <span class="fc-star">★★★★★</span>
+      </div>
+      <p class="fc-info">📍 鼓樓/天一廣場片區・約1.1km &nbsp;·&nbsp; 💰 ¥100－150/人</p>
+      <p class="fc-desc"><strong>招牌：生醃梭子蟹、醉蝦、生醃皮皮蝦</strong>　寧波生醃海鮮代表店，建議提前預訂，高峰期座位緊張。</p>
+      <div class="fc-detail" id="fi-卿家姆"><p>🏠 <strong>地址：</strong>海曙區桂井街（建議提前預約）</p><p>🕐 <strong>時間：</strong>11:30－14:00；17:30－21:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/卿家姆小館+寧波" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=卿家姆小館 寧波&city=宁波" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc" id="fc-大漁">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/f/f4/%E7%B4%85%E7%87%92%E8%82%89_Braised_pork_in_brown_sauce.jpg" alt="大漁鐵板燒" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">大漁鐵板燒<span class="fc-ibtn" onclick="toggleFoodInfo('fi-大漁')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#EEEDFE;color:#3C3489">晚餐首選</span>
+        <span class="fc-star">★★★★☆</span>
+      </div>
+      <p class="fc-info">📍 天一廣場附近・步行約3分 &nbsp;·&nbsp; 💰 ¥80－130/人</p>
+      <p class="fc-desc"><strong>招牌：現切和牛鐵板燒、海鮮拼盤</strong>　氣氛好適合晚餐聚餐，主廚現場料理，食材新鮮。</p>
+      <div class="fc-detail" id="fi-大漁"><p>🏠 <strong>地址：</strong>江北區和義路18號・天一廣場內</p><p>🕐 <strong>時間：</strong>11:00－22:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/大漁鐵板燒+寧波" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=大漁鐵板燒 寧波&city=宁波" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc" id="fc-狀元樓">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/d/db/%E5%B0%8F%E9%BB%84%E9%B1%BC.jpg" alt="狀元樓飯店" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">狀元樓飯店<span class="fc-ibtn" onclick="toggleFoodInfo('fi-狀元樓')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#FAEEDA;color:#633806">老字號・1930年</span>
+        <span class="fc-star">★★★★</span>
+      </div>
+      <p class="fc-info">📍 和義路和義大道購物中心 &nbsp;·&nbsp; 💰 ¥80－150/人</p>
+      <p class="fc-desc"><strong>招牌：黃花魚、醃製海鮮、寧波本幫料理</strong>　1930年老字號，本幫料理代表，是寧波菜的正宗詮釋。</p>
+      <div class="fc-detail" id="fi-狀元樓"><p>🏠 <strong>地址：</strong>江北區和義路18號（和義大道購物中心）</p><p>🕐 <strong>時間：</strong>11:00－21:30</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/狀元樓飯店+寧波" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=狀元樓飯店 寧波&city=宁波" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc" id="fc-寧海食府">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Portunus_trituberculatus.jpg" alt="寧海食府" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">寧海食府<span class="fc-ibtn" onclick="toggleFoodInfo('fi-寧海食府')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#FAEEDA;color:#633806">海鮮品質最高</span>
+        <span class="fc-star">★★★★★</span>
+      </div>
+      <p class="fc-info">📍 鼓樓/天一廣場片區・約800m &nbsp;·&nbsp; 💰 ¥120－180/人</p>
+      <p class="fc-desc"><strong>招牌：蔥油蟹、清蒸黃魚、蝦蛄（皮皮蝦）</strong>　寧波老字號海鮮館，海鮮品質是同類中最好，適合想吃頂級海鮮的一餐。</p>
+      <div class="fc-detail" id="fi-寧海食府"><p>🏠 <strong>地址：</strong>海曙區解放北路（鼓樓一帶，約800m）</p><p>🕐 <strong>時間：</strong>11:00－21:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/寧海食府+寧波" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=寧海食府 寧波&city=宁波" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <!-- 普陀山 -->
+  <div class="area-banner" style="background:linear-gradient(135deg,#EAF3DE,#D4EBC8);margin-top:1.5rem">
+    <span style="font-size:22px">⛩</span>
+    <div>
+      <p style="font-size:14px;font-weight:700;color:#27500A;margin:0 0 2px">普陀山</p>
+      <p style="font-size:12px;color:#3D6B1E;margin:0">D2 晚 ＋ D3 全日 ＋ D4 早</p>
+    </div>
+  </div>
+
+  <p class="section-label">🌿 素齋・必試</p>
+
+  <div class="fc" id="fc-長壽齋">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Boeddha%27s_Delight.jpg" alt="長壽齋（普濟寺）" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">長壽齋（普濟寺）<span class="fc-ibtn" onclick="toggleFoodInfo('fi-長壽齋')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#EAF3DE;color:#27500A">寺廟素齋</span>
+        <span class="fc-star">★★★★★</span>
+      </div>
+      <p class="fc-info">📍 普濟寺內 &nbsp;·&nbsp; 💰 ¥10/人（自助）</p>
+      <p class="fc-desc"><strong>午齋 10:30－11:50，自助打飯</strong>　千年古寺正宗素食體驗，與僧侶同用齋飯，是普陀山的標誌性用餐儀式。</p>
+      <div class="fc-detail" id="fi-長壽齋"><p>🏠 <strong>地址：</strong>普陀山鎮普濟寺內（普濟路1號）</p><p>🕐 <strong>時間：</strong>⚠️ 午齋 10:30－11:50（僅此時段）</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/長壽齋+普陀山" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=長壽齋 普陀山&city=舟山" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc" id="fc-珠盤齋">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Boeddha%27s_Delight.jpg" alt="珠盤齋" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">珠盤齋<span class="fc-ibtn" onclick="toggleFoodInfo('fi-珠盤齋')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#EAF3DE;color:#27500A">素食</span>
+        <span class="fc-star">★★★★☆</span>
+      </div>
+      <p class="fc-info">📍 普濟寺內 ⚠️ 06:30－09:30 &nbsp;·&nbsp; 💰 ¥10－15/人</p>
+      <p class="fc-desc"><strong>招牌：素齋飯、傳統寺廟菜</strong>　早起必訪，傳統寺廟素食，清晨靜謐中用餐別有禪意。</p>
+      <div class="fc-detail" id="fi-珠盤齋"><p>🏠 <strong>地址：</strong>普濟寺內（普陀山鎮普濟路1號）</p><p>🕐 <strong>時間：</strong>⚠️ 早齋 06:30－09:30（僅此時段）</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/珠盤齋+普陀山" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=珠盤齋 普陀山&city=舟山" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc" id="fc-長生素齋">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Boeddha%27s_Delight.jpg" alt="長生素齋" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">長生素齋<span class="fc-ibtn" onclick="toggleFoodInfo('fi-長生素齋')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#EAF3DE;color:#27500A">素食</span>
+        <span class="fc-star">★ 5.0</span>
+      </div>
+      <p class="fc-info">📍 普陀山鎮 &nbsp;·&nbsp; 💰 ¥10－20/人</p>
+      <p class="fc-desc"><strong>招牌：豆腐什錦、家常素菜</strong>　島上評分最高素食小館，本地人推薦，食材新鮮、價格親民。</p>
+      <div class="fc-detail" id="fi-長生素齋"><p>🏠 <strong>地址：</strong>普陀山鎮（普濟寺附近）</p><p>🕐 <strong>時間：</strong>10:00－20:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/長生素齋+普陀山" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=長生素齋 普陀山&city=舟山" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc" id="fc-梵凈">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Boeddha%27s_Delight.jpg" alt="梵凈小廚" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">梵凈小廚<span class="fc-ibtn" onclick="toggleFoodInfo('fi-梵凈')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#E6F1FB;color:#0C447C">江浙素食</span>
+        <span class="fc-star">★ 4.9</span>
+      </div>
+      <p class="fc-info">📍 法雨寺附近 &nbsp;·&nbsp; 💰 ¥70－110/人（套餐）</p>
+      <p class="fc-desc"><strong>招牌：全素三人套餐、精緻素菜</strong>　環境清幽，精緻浙式素菜，島上評價最高的餐廳之一，建議提前預訂。</p>
+      <div class="fc-detail" id="fi-梵凈"><p>🏠 <strong>地址：</strong>法雨寺附近（百步沙側）</p><p>🕐 <strong>時間：</strong>11:00－20:00（建議提前預約）</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/梵凈小廚+普陀山" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=梵凈小廚 普陀山&city=舟山" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc" id="fc-棗子樹">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Boeddha%27s_Delight.jpg" alt="棗子樹素食餐廳" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">棗子樹素食餐廳<span class="fc-ibtn" onclick="toggleFoodInfo('fi-棗子樹')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#EAF3DE;color:#27500A">素食</span>
+        <span class="fc-star">★★★★☆</span>
+      </div>
+      <p class="fc-info">📍 普陀山鎮 &nbsp;·&nbsp; 💰 ¥40－70/人</p>
+      <p class="fc-desc"><strong>招牌：糖醋素排、家常素菜</strong>　人均最平衡的素食選擇，口味清淡，適合全家都能接受的一餐。</p>
+      <div class="fc-detail" id="fi-棗子樹"><p>🏠 <strong>地址：</strong>普陀山鎮</p><p>🕐 <strong>時間：</strong>10:00－21:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/棗子樹+普陀山" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=棗子樹 普陀山&city=舟山" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <p class="section-label">🦀 海鮮・排檔</p>
+
+  <div class="fc" id="fc-金潮">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Portunus_trituberculatus.jpg" alt="金潮飯店" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">金潮飯店<span class="fc-ibtn" onclick="toggleFoodInfo('fi-金潮')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#E6F1FB;color:#0C447C">海鮮</span>
+        <span class="fc-star">★★★★☆</span>
+      </div>
+      <p class="fc-info">📍 普濟寺附近（231評） &nbsp;·&nbsp; 💰 ¥60－100/人</p>
+      <p class="fc-desc"><strong>招牌：蔥烤大黃魚、海鮮大拼盤</strong>　島上人氣最高海鮮館，評價穩定，是第一晚海鮮晚餐的首選。</p>
+      <div class="fc-detail" id="fi-金潮"><p>🏠 <strong>地址：</strong>普濟寺附近（普陀山鎮）</p><p>🕐 <strong>時間：</strong>10:00－21:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/金潮飯店+普陀山" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=金潮飯店 普陀山&city=舟山" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc" id="fc-阿城">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Portunus_trituberculatus.jpg" alt="阿城海鮮排檔" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">阿城海鮮排檔<span class="fc-ibtn" onclick="toggleFoodInfo('fi-阿城')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#FAECE7;color:#712B13">人均最平</span>
+        <span class="fc-star">★ 5.0</span>
+      </div>
+      <p class="fc-info">📍 普陀山鎮 &nbsp;·&nbsp; 💰 ¥60－100/人</p>
+      <p class="fc-desc"><strong>招牌：梭子蟹、大黃魚、花蛤</strong>　現撈現炒，島上最道地的平價排檔，本地漁民口碑推薦。</p>
+      <div class="fc-detail" id="fi-阿城"><p>🏠 <strong>地址：</strong>普陀山鎮中段</p><p>🕐 <strong>時間：</strong>10:00－20:30</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/阿城海鮮+普陀山" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=阿城海鮮 普陀山&city=舟山" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc" id="fc-原製">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/d/db/%E5%B0%8F%E9%BB%84%E9%B1%BC.jpg" alt="原製原味（盤龍店）" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">原製原味（盤龍店）<span class="fc-ibtn" onclick="toggleFoodInfo('fi-原製')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#E6F1FB;color:#0C447C">現撈海鮮</span>
+        <span class="fc-star">★ 4.0</span>
+      </div>
+      <p class="fc-info">📍 普陀山鎮 &nbsp;·&nbsp; 💰 ¥50－90/人</p>
+      <p class="fc-desc"><strong>招牌：現撈海鮮清蒸</strong>　食材直接決定價格，自己挑選更實惠，適合喜歡自主搭配的旅客。</p>
+      <div class="fc-detail" id="fi-原製"><p>🏠 <strong>地址：</strong>舟山市普陀山鎮盤龍</p><p>🕐 <strong>時間：</strong>10:00－21:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/原製原味+普陀山" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=原製原味 普陀山&city=舟山" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc" id="fc-祥生">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/d/db/%E5%B0%8F%E9%BB%84%E9%B1%BC.jpg" alt="祥生大酒店・中餐廳" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">祥生大酒店・中餐廳<span class="fc-ibtn" onclick="toggleFoodInfo('fi-祥生')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#E6F1FB;color:#0C447C">江浙菜</span>
+        <span class="fc-star">★ 4.8</span>
+      </div>
+      <p class="fc-info">📍 百步沙附近（139評） &nbsp;·&nbsp; 💰 ¥80－120/人</p>
+      <p class="fc-desc"><strong>招牌：江浙海鮮套餐</strong>　酒店餐廳品質穩定，環境舒適，適合抵達第一晚不想找路的輕鬆選擇。</p>
+      <div class="fc-detail" id="fi-祥生"><p>🏠 <strong>地址：</strong>普陀山百步沙路（祥生大酒店內）</p><p>🕐 <strong>時間：</strong>11:00－21:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/祥生大酒店+普陀山" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=祥生大酒店 普陀山&city=舟山" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc" id="fc-外婆菜">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/f/f4/%E7%B4%85%E7%87%92%E8%82%89_Braised_pork_in_brown_sauce.jpg" alt="外婆菜・舟山人的味道" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">外婆菜・舟山人的味道<span class="fc-ibtn" onclick="toggleFoodInfo('fi-外婆菜')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#EAF3DE;color:#27500A">江浙家常</span>
+        <span class="fc-star">★ 5.0</span>
+      </div>
+      <p class="fc-info">📍 烏石塘附近（觀音法界） &nbsp;·&nbsp; 💰 ¥50－80/人</p>
+      <p class="fc-desc"><strong>招牌：家常炒菜、舟山本地風味</strong>　本地人最愛，份量實在，是在島上吃最真實舟山滋味的好選擇。</p>
+      <div class="fc-detail" id="fi-外婆菜"><p>🏠 <strong>地址：</strong>普陀山烏石塘附近（觀音法界一帶）</p><p>🕐 <strong>時間：</strong>10:00－20:30</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/外婆菜+普陀山" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=外婆菜 普陀山&city=舟山" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc" id="fc-黃婆婆">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/3/39/Pork_Steamed_Wontons.jpg" alt="黃婆婆海鮮麵館" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name" style="display:flex;justify-content:space-between;align-items:center;margin:0 0 2px">黃婆婆海鮮麵館<span class="fc-ibtn" onclick="toggleFoodInfo('fi-黃婆婆')">ℹ 詳情</span></p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#FAEEDA;color:#633806">海鮮麵</span>
+        <span class="fc-star">★★★★☆</span>
+      </div>
+      <p class="fc-info">📍 朱家尖中欣路301號 &nbsp;·&nbsp; 💰 ¥70－90/人</p>
+      <p class="fc-desc"><strong>招牌：招牌海鮮麵、魚湯底</strong>　朱家尖碼頭旁，回程前來一碗最舒服，魚湯底鮮甜濃郁。</p>
+      <div class="fc-detail" id="fi-黃婆婆"><p>🏠 <strong>地址：</strong>舟山市普陀區朱家尖中欣路301號</p><p>🕐 <strong>時間：</strong>08:00－20:00</p><div class="fc-detail-row"><a class="fc-detail-btn" href="https://www.google.com/maps/search/黃婆婆海鮮麵館+朱家尖" target="_blank">🗺 Google地圖</a><a class="fc-detail-btn" href="https://www.amap.com/search?query=黃婆婆海鮮麵館 朱家尖&city=舟山" target="_blank">📍 高德地圖</a></div></div>
+    </div>
+  </div>
+
+  <div class="fc">
+    <img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/4/42/Zongzi.jpg" alt="觀音餅攤" loading="lazy">
+    <div class="fc-body">
+      <p class="fc-name">觀音餅攤</p>
+      <div class="fc-meta">
+        <span class="fc-tag" style="background:#EEEDFE;color:#3C3489">小吃/伴手禮</span>
+        <span class="fc-star"></span>
+      </div>
+      <p class="fc-info">📍 寺廟周邊攤販 &nbsp;·&nbsp; 💰 ¥10－20/人</p>
+      <p class="fc-desc"><strong>招牌：觀音餅（芝麻/豆沙）</strong>　島上必買伴手禮，現做現賣，以觀音形象烙印，香甜Q軟，帶幾盒回台灣。</p>
+    </div>
   </div>
 
   <div class="tip" style="margin-top:1rem">
     <span class="tip-icon">💡</span>
-    <p>寧波湯圓多用<strong>豬油</strong>製餡，忌口者需留意。生醃海鮮為未熟食，腸胃敏感者慎食。部分人氣餐廳（外婆家、卿家姆）建議提前在大眾點評取號或預訂。</p>
+    <p>寧波湯圓多用<strong>豬油</strong>製餡，忌口者需留意。生醃海鮮為未熟食，腸胃敏感者慎食。部分人氣餐廳（外婆家、卿家姆、梵凈小廚）建議提前在大眾點評取號或預訂。<br>普陀山素齋午齋座位有限，建議 10:00 前抵達普濟寺排隊。</p>
   </div>
 </div>
+
 
 <div class="footer">
   寧波・普陀山 五日旅遊指南 · 2026年11月19日－23日
 </div>
 
 <script>
+
+function goToDay(dayId,color){
+  document.querySelectorAll('.pnl').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('itinerary').classList.add('on');
+  const itab=document.querySelector('.ntab[onclick*="itinerary"]');
+  if(itab)itab.classList.add('on');
+  document.querySelectorAll('.dpnl').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.dtab').forEach(t=>{t.classList.remove('on');t.style.background='#fff';t.style.borderColor='#ddd';t.style.color='#666';});
+  document.getElementById(dayId).classList.add('on');
+  const dtab=document.querySelector('.dtab[onclick*="\''+dayId+'\'"]');
+  if(dtab){dtab.classList.add('on');dtab.style.background=color;dtab.style.borderColor=color;dtab.style.color='#fff';}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function goToFood(fcId){
+  document.querySelectorAll('.pnl').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('food').classList.add('on');
+  const ftab=document.querySelector('.ntab[onclick*="food"]');
+  if(ftab)ftab.classList.add('on');
+  setTimeout(()=>{
+    const el=document.getElementById(fcId);
+    if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.style.outline='2px solid #185FA5';setTimeout(()=>el.style.outline='',1600);}
+  },150);
+}
+function toggleFoodInfo(id){
+  const el=document.getElementById(id);
+  if(el){el.style.display=el.style.display==='none'||!el.style.display?'block':'none';}
+}
 function switchMain(id,el){
   document.querySelectorAll('.pnl').forEach(p=>p.classList.remove('on'));
   document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('on'));
